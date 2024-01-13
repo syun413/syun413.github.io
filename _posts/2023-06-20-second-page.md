@@ -1,6 +1,6 @@
 ---
 title: Second Page Post 
-author: John Doe
+author: KUANHSUN TU
 layout: post
 ---
 
