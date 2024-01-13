@@ -22,11 +22,11 @@ y^{(i)})2 + \lambda\sum^n_{j=1}\theta^2_j $$
 # Theorems, Definitions, and Proofs
 
 <div class="theorem">
-  <h3>Theorem 1. The real numbers \(\mathbb{R}\) are uncountable</h3>
+  <h3>The real numbers \(\mathbb{R}\) are uncountable</h3>
 </div>
 
 <div class="proof">
-  <strong>Proof:</strong> If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence there exists a map C from $\mathbb{N}$ onto [0, 1] with $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) \in\{0,1, \ldots, 9\},$ are the digits in decimal expansion. Now consider a real number $$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i} \in[0,1]$$ with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$ for all $n \in \mathbb{N} .$ Hence $C$ is not onto. A contradiction.
+If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence there exists a map C from $\mathbb{N}$ onto [0, 1] with $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) \in\{0,1, \ldots, 9\},$ are the digits in decimal expansion. Now consider a real number $$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i} \in[0,1]$$ with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$ for all $n \in \mathbb{N} .$ Hence $C$ is not onto. A contradiction.
 </div>
 
 # HTML Elements
