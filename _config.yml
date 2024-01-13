@@ -1,32 +1,32 @@
 # Site Info
-title:              "KUANHSUN TU"
-description:        "A blog built by a NTU CSIE student"
-google_verify:       # Put your Google Verification here
+title: "KUANHSUN TU"
+description: "A blog built by a NTU CSIE student"
+google_verify: # Put your Google Verification here
 google_analytics:
 
 # Author Info
-author_name:        "KUANHSUN TU" # Your name here
-author_email:       henrydu0413@gmail.com # Your email here
-author_gravatar:    a94091534fd2c7bee30fd37f924239d72f7120cdf2aa6e185c0f1bd74a6feb17 # Your Gravatar md5 hash here for logo
+author_name: "KUANHSUN TU" # Your name here
+author_email: henrydu0413@gmail.com # Your email here
+author_gravatar: a94091534fd2c7bee30fd37f924239d72f7120cdf2aa6e185c0f1bd74a6feb17 # Your Gravatar md5 hash here for logo
 
 # Site Settings
-url:                 https://syun413.github.io # Change to your site
-baseurl:
-permalink:          /posts/:title # Post permalink
-timezone:           Asia/Taipei # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-mathjax:            true  # enables support for mathjax - set to false to disable
+url: "https://syun413.github.io"
+baseurl: ""
+permalink: /posts/:title # Post permalink
+timezone: Asia/Taipei # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+mathjax: true # enables support for mathjax - set to false to disable
 
 # Site Build
-highlighter:        rouge
-markdown:           kramdown
+highlighter: rouge
+markdown: kramdown
 kramdown:
-    input:          GFM
+    input: GFM
 sass:
-    style:          :compressed
+    style: :compressed
 
 # Other Params
-include:            [ "robots.txt" ]
-exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
+include: [ "robots.txt" ]
+exclude: [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
@@ -37,16 +37,16 @@ paginate_path: "/blog/page:num/"
 defaults:
   -
     scope:
-      path:         ""
+      path: ""
     values:
-      layout:       "null"
+      layout: "null"
   -
     scope:
-      type:         "pages"
+      type: "pages"
     values:
-      layout:       "page"
+      layout: "page"
   -
     scope:
-      type:         "posts"
+      type: "posts"
     values:
-      layout:       "post"
+      layout: "post"
