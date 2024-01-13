@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
+gem 'github-pages', group: :jekyll_plugins
 
-gem 'jekyll'
-gem 'webrick'
-gem 'bourbon'
-# gem 'github-pages'
-gem 'jekyll-paginate'
-gem 'jekyll-sitemap' # 新增這行
+#gem 'jekyll'
+#gem 'webrick'
+#gem 'bourbon'
+#gem 'jekyll-paginate'
+#gem 'jekyll-sitemap'

@@ -12,7 +12,7 @@
     KUANHSUN TU</title>
 
 
-<meta name="description" content="AbstractThis project is called jekyll-latex. It allows you to write markdown posts using the Jekyll framework with the beautiful typography of LaTeX and the ...">
+<meta name="description" content="  Abstract  This project is called jekyll-latex. It allows you to write markdown posts using the Jekyll framework with the beautiful typography of LaTeX and ...">
 
 
 
@@ -75,25 +75,15 @@
 
     <div class="divider"></div>
 
-    <div class="abstract"><h5>Abstract</h5><p>
-This project is called jekyll-latex. It allows you to write markdown posts using the Jekyll framework with the beautiful typography of <span class="latex">L<span>a</span>T<span>e</span>X</span> and the MathJax library so you can render gorgeous equations like this one below:
-$$ J(\theta) =\frac{1}{2m}
-[\sum^m_{i=1}(h_\theta(x^{(i)}) -
-y^{(i)})2 + \lambda\sum^n_{j=1}\theta^2_j $$
-</p></div>
+    <div class="abstract">
+  <h2>Abstract</h2>
+  <p>This project is called jekyll-latex. It allows you to write markdown posts using the Jekyll framework with the beautiful typography of LaTeX and the MathJax library so you can render gorgeous equations like this one below:</p>
+  <p>$$ J(\theta) =\frac{1}{2m} [\sum^m_{i=1}(h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\sum^n_{j=1}\theta^2_j $$</p>
+</div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{% abstract %}
-This project is called jekyll-latex. It features the beautiful
-typography of &lt;span class="latex"&gt;L&lt;span&gt;a&lt;/span&gt;T&lt;span&gt;
-e&lt;/span&gt;X&lt;/span&gt; and it includes MathJax so you can render
-gorgeous equations like this one below:
-$$ J(\theta) =\frac{1}{2m}
+\[J(\theta) =\frac{1}{2m}
 [\sum^m_{i=1}(h_\theta(x^{(i)}) -
-y^{(i)})2 + \lambda\sum^n_{j=1}\theta^2_j $$
-{% endabstract %}
-
-</code></pre></div></div>
+y^{(i)})2 + \lambda\sum^n_{j=1}\theta^2_j\]
 
 <h1 id="table-of-contents">Table of Contents</h1>
 <ul id="markdown-toc">
@@ -114,74 +104,21 @@ y^{(i)})2 + \lambda\sum^n_{j=1}\theta^2_j $$
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-# Table of Contents
-* TOC
-{:toc}
-
-</code></pre></div></div>
-
 <h1 id="theorems-definitions-and-proofs">Theorems, Definitions, and Proofs</h1>
 
 <div class="theorem">
-The real numbers $\mathbb{R}$ are uncountable
+  <h3>Theorem 1. The real numbers \(\mathbb{R}\) are uncountable</h3>
 </div>
 
 <div class="proof">
-If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence there exists a map
-C from $\mathbb{N}$ onto [0, 1] with $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) \in\{0,1,
-\ldots, 9\},$
-are the digits in decimal expansion. Now consider a real
-number
-$$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i} \in[0,1]$$
-with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$ for all $n \in \mathbb{N} .$ Hence $C$ is not onto. A
-contradiction.
+  <strong>Proof:</strong> If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence there exists a map C from $\mathbb{N}$ onto [0, 1] with $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) \in\{0,1, \ldots, 9\},$ are the digits in decimal expansion. Now consider a real number $$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i} \in[0,1]$$ with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$ for all $n \in \mathbb{N} .$ Hence $C$ is not onto. A contradiction.
 </div>
-
-<pre>
-<code>
-
-{% theorem %}
-
-The real numbers $\mathbb{R}$ are uncountable
-
-{% endtheorem %}
-
-
-
-{% proof %}
-
-If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence
-there exists a map C from $\mathbb{N}$ onto [0, 1] with
-$$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) \in\{0,1,
-\ldots, 9\},$
-are the digits in decimal expansion. Now consider a real number
-$$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i} \in[0,1]$$
-with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$ for all $n \in
-\mathbb{N} .$ Hence $C$ is not onto. A contradiction.
-
-{% endproof %}
-
-</code>
-</pre>
 
 <h1 id="html-elements">HTML Elements</h1>
 
 <h2 id="text-formatting">Text Formatting</h2>
 
 <p>This sentence is <strong>bold</strong>. This sentence is <em>italic</em>. <small>Small</small> text is for fine print. Your copy can also be <sub>subscripted</sub> and <sup>superscripted</sup>, <ins>inserted</ins>, <del>deleted</del>, or <mark>highlighted</mark>. You would use a <a href="https://github.com/ryanmcdermott/jekyll-latex">hyperlink</a> to go to a new page. Keyboard input elements like <kbd>Cmd + Shift</kbd> are used to display textual user input.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This sentence is **bold**. This sentence is *italic*.
-&lt;small&gt;Small&lt;/small&gt; text is for fine print. Your
-copy can also be &lt;sub&gt;subscripted&lt;/sub&gt; and
-&lt;sup&gt;superscripted&lt;/sup&gt;, &lt;ins&gt;inserted&lt;/ins&gt;,
-~~deleted~~, or &lt;mark&gt;highlighted&lt;/mark&gt;. You would
-use a [hyperlink]
-(https://github.com/ryanmcdermott/jekyll-latex) to
-go to a new page. Keyboard input elements like
-&lt;kbd&gt;Cmd + Shift&lt;/kbd&gt; are used to display textual
-user input.
-</code></pre></div></div>
 
 <h2 id="definition-lists">Definition Lists</h2>
 <dl>
@@ -191,31 +128,12 @@ user input.
   <dd>$\iiint_V \mu(u,v,w) \,du\,dv\,dw$</dd>
 </dl>
 
-<pre>
-<code>
-First Term
-: This is the definition of the first term.
-
-Triple Integral
-: $\iiint_V \mu(u,v,w) \,du\,dv\,dw$
-
-</code>
-</pre>
-
 <h2 id="blockquotes">Blockquotes</h2>
 
 <blockquote>
   <p>Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
 <cite>— Abraham Lincoln</cite></p>
 </blockquote>
-
-<pre>
-<code>
-&gt; Give me six hours to chop down a tree and I will spend the first four
-sharpening the axe.
-&lt;cite&gt;— Abraham Lincoln&lt;/cite&gt;
-</code>
-</pre>
 
 <h2 id="tables">Tables</h2>
 
@@ -246,30 +164,9 @@ sharpening the axe.
   </tbody>
 </table>
 
-<pre>
-<code>
-|Header 1|Header 2|Header 3|
-|--- |--- |--- |
-|Description 1|Description 2|Description 3|
-|Description 1|Description 2|Description 3|
-|Description 1|Description 2|Description 3|
-</code>
-</pre>
-
 <h2 id="images">Images</h2>
 
-<figure class="image">
-  <img src="/assets/latex_image_example.jpeg" alt="Mountain landscape by John Towner." />
-  <figcaption>Mountain landscape by John Towner.</figcaption>
-</figure>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{% include image.liquid
-    url="/assets/latex_image_example.jpeg"
-    description="Mountain landscape by John Towner."
-%}
-
-</code></pre></div></div>
+<p><img src="/assets/latex_image_example.jpeg" alt="Mountain landscape by John Towner" /></p>
 
 <h2 id="lists">Lists</h2>
 
@@ -287,20 +184,6 @@ sharpening the axe.
   <li>List Item 2</li>
   <li>List Item 3</li>
 </ol>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-### Unordered List
-- List Item 1
-- List Item 2
-- List Item 3
-
-### Ordered List
-
-1. List Item 1
-1. List Item 2
-1. List Item 3
-
-</code></pre></div></div>
 
 
   </article>
