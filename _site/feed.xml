@@ -13,10 +13,10 @@
   &lt;p&gt;This project is called jekyll-latex. It allows you to write markdown posts using the Jekyll framework with the beautiful typography of LaTeX and the MathJax library so you can render gorgeous equations like this one below:&lt;/p&gt;
   &lt;p&gt;$$ J(\theta) =\frac{1}{2m} [\sum^m_{i=1}(h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\sum^n_{j=1}\theta^2_j $$&lt;/p&gt;
 &lt;/div&gt;
-
-\[J(\theta) =\frac{1}{2m}
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$$ J(\theta) =\frac{1}{2m}
 [\sum^m_{i=1}(h_\theta(x^{(i)}) -
-y^{(i)})2 + \lambda\sum^n_{j=1}\theta^2_j\]
+y^{(i)})2 + \lambda\sum^n_{j=1}\theta^2_j $$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h1&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;

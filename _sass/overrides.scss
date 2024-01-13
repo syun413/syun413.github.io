@@ -338,10 +338,15 @@ article {
     align-self: center;
 }
 
+/* Abstract style */
 .abstract {
-    background-color: #f8f8f8;
+    background-color: hsl(0, 0%, 16%);
+    /* Change to black background */
+    color: hsl(0, 0%, 86%);
+    /* Change text color to white for better contrast */
     padding: 15px;
     border-left: 10px solid #ccc;
+    /* You can change this color as well */
     margin-bottom: 20px;
 }
 
@@ -349,11 +354,14 @@ article {
     margin-top: 0;
 }
 
-.theorem {
-    background-color: #f0f0f0;
-    border-left: 10px solid #999;
+/* Proof style */
+.proof {
+    background-color: hsl(0, 0%, 16%);
+    /* Change to black background */
+    color: hsl(0, 0%, 86%);
+    /* Change text color to white for better contrast */
     padding: 5px 15px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .theorem h3 {
@@ -361,7 +369,7 @@ article {
 }
 
 .proof {
-    background-color: #f0f0f0;
+    background-color: hsl(0, 0%, 16%);
     padding: 5px 15px;
     margin-bottom: 20px;
 }
