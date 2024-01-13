@@ -10,7 +10,7 @@ author_email:       henrydu0413@gmail.com # Your email here
 author_gravatar:    a94091534fd2c7bee30fd37f924239d72f7120cdf2aa6e185c0f1bd74a6feb17 # Your Gravatar md5 hash here for logo
 
 # Site Settings
-url:                 https://ryanmcdermott.me/jekyll-latex # Change to your site
+url:                 https://syun413.github.io # Change to your site
 baseurl:
 permalink:          /posts/:title # Post permalink
 timezone:           Asia/Taipei # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
