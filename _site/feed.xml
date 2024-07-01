@@ -1,0 +1,153 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://syun413.github.io/</id>
+  <title>KUANHSUN TU</title>
+  <subtitle>This is the personal academic website of KUANHSUN TU, showcasing my research, notes, and academic projects.</subtitle>
+  <updated>2024-07-01T13:40:07+08:00</updated>
+  <author>
+    <name>KUANHSUN TU</name>
+    <uri>https://syun413.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://syun413.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://syun413.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
+  <rights> © 2024 KUANHSUN TU </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>1431. Kids With the Greatest Number of Candies (Easy)</title>
+    <link href="https://syun413.github.io/posts/1431/" rel="alternate" type="text/html" title="1431. Kids With the Greatest Number of Candies (Easy)" />
+    <published>2024-07-01T00:27:00+08:00</published>
+  
+    <updated>2024-07-01T00:27:00+08:00</updated>
+  
+    <id>https://syun413.github.io/posts/1431/</id>
+    <content src="https://syun413.github.io/posts/1431/" />
+    <author>
+      <name>KUANHSUN TU</name>
+    </author>
+
+  
+    
+    <category term="Leetcode" />
+    
+    <category term="Array/String" />
+    
+  
+
+  <summary>1431. Kids With the Greatest Number of Candies Solution</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>1071. Greatest Common Divisor of Strings (Easy)</title>
+    <link href="https://syun413.github.io/posts/1071/" rel="alternate" type="text/html" title="1071. Greatest Common Divisor of Strings (Easy)" />
+    <published>2024-06-30T00:49:00+08:00</published>
+  
+    <updated>2024-06-30T00:49:00+08:00</updated>
+  
+    <id>https://syun413.github.io/posts/1071/</id>
+    <content src="https://syun413.github.io/posts/1071/" />
+    <author>
+      <name>KUANHSUN TU</name>
+    </author>
+
+  
+    
+    <category term="Leetcode" />
+    
+    <category term="Array/String" />
+    
+  
+
+  <summary>1071. Greatest Common Divisor of Strings Solution</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>1768. Merge Strings Alternately (Easy)</title>
+    <link href="https://syun413.github.io/posts/1768/" rel="alternate" type="text/html" title="1768. Merge Strings Alternately (Easy)" />
+    <published>2024-06-29T23:20:00+08:00</published>
+  
+    <updated>2024-06-29T23:20:00+08:00</updated>
+  
+    <id>https://syun413.github.io/posts/1768/</id>
+    <content src="https://syun413.github.io/posts/1768/" />
+    <author>
+      <name>KUANHSUN TU</name>
+    </author>
+
+  
+    
+    <category term="Leetcode" />
+    
+    <category term="Array/String" />
+    
+  
+
+  <summary>1768. Merge Strings Alternately Solution</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>OS 學習指南 - 目錄</title>
+    <link href="https://syun413.github.io/posts/OS_README/" rel="alternate" type="text/html" title="OS 學習指南 - 目錄" />
+    <published>2024-06-28T23:50:00+08:00</published>
+  
+    <updated>2024-06-28T23:50:00+08:00</updated>
+  
+    <id>https://syun413.github.io/posts/OS_README/</id>
+    <content src="https://syun413.github.io/posts/OS_README/" />
+    <author>
+      <name>KUANHSUN TU</name>
+    </author>
+
+  
+    
+    <category term="Lecture Notes" />
+    
+    <category term="Operating System" />
+    
+  
+
+  <summary>Operating System Learning Guide</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Lecture 1 - Introduction to Basics</title>
+    <link href="https://syun413.github.io/posts/NASA_Lecture1/" rel="alternate" type="text/html" title="Lecture 1 - Introduction to Basics" />
+    <published>2024-06-28T16:34:00+08:00</published>
+  
+    <updated>2024-06-28T16:34:00+08:00</updated>
+  
+    <id>https://syun413.github.io/posts/NASA_Lecture1/</id>
+    <content src="https://syun413.github.io/posts/NASA_Lecture1/" />
+    <author>
+      <name>KUANHSUN TU</name>
+    </author>
+
+  
+    
+    <category term="Lecture Notes" />
+    
+    <category term="Network Administration and System Administration" />
+    
+  
+
+  <summary>Introduction to basic concepts of NASA</summary>
+
+  </entry>
+
+</feed>
+
+

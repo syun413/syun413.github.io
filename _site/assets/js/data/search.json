@@ -1,0 +1,123 @@
+[
+  
+  {
+    "title": "1431. Kids With the Greatest Number of Candies (Easy)",
+    "url": "/posts/1431/",
+    "categories": "Leetcode, Array/String",
+    "tags": "Leetcode, LeetCode 75",
+    "date": "2024-07-01 00:27:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "題目連結：Leetcode 連結解題思路先找出 Candies 裡面最大的值設為 max_value，再跑過整個 List，每一個元素加上 extraCandies 跟 max_value 比大小，大於等於 max_value 即為 True，小於則為 False。解法class Solution:    def kidsWithCandies(self, candies: List[int...",
+    "content": "題目連結：Leetcode 連結解題思路先找出 Candies 裡面最大的值設為 max_value，再跑過整個 List，每一個元素加上 extraCandies 跟 max_value 比大小，大於等於 max_value 即為 True，小於則為 False。解法class Solution:    def kidsWithCandies(self, candies: List[int], extraCandies: int) -&gt; List[bool]:        max_value = max(candies)        result = []        for i in range(len(candies)):            if (candies[i] + extraCandies) &gt;= max_value:                result.append(True)            else:                result.append(False)                return result優化解法class Solution:    def kidsWithCandies(self, candies: List[int], extraCandies: int) -&gt; List[bool]:        max_value = max(candies)        return [(candy + extraCandies) &gt;= max_value for candy in candies]"
+  },
+  
+  {
+    "title": "1071. Greatest Common Divisor of Strings (Easy)",
+    "url": "/posts/1071/",
+    "categories": "Leetcode, Array/String",
+    "tags": "Leetcode, LeetCode 75",
+    "date": "2024-06-30 00:49:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "題目連結：Leetcode 連結解題思路首先，先檢查 str1 + str2 跟 str2 + str1 一不一樣，如果不一樣的話就可以直接回傳空字串。證明：假設最大公因數字串 x 真的存在，且 str1 的長度為 n， str2 的長度為 m，則：  $str1 + str2 = x * n + x * m = x * (n + m) = x * m + x * n = str1 + st...",
+    "content": "題目連結：Leetcode 連結解題思路首先，先檢查 str1 + str2 跟 str2 + str1 一不一樣，如果不一樣的話就可以直接回傳空字串。證明：假設最大公因數字串 x 真的存在，且 str1 的長度為 n， str2 的長度為 m，則：  $str1 + str2 = x * n + x * m = x * (n + m) = x * m + x * n = str1 + str2$故若 $str1 + str2 \\neq str2 + str1$，則 x 不存在。檢查完以後，我們可以確定 x 存在，那就只要算出 m, n 的最大公因數 gcd_length，就可以直接回傳 str1[:gcd_length]。解答import mathclass Solution:    def gcdOfStrings(self, str1: str, str2: str) -&gt; str:        if (str1 + str2) != (str2 + str1):            return \"\"                gcd_len = math.gcd(len(str1), len(str2))        return str1[:gcd_len]Python 語法補充      str1[:gcd_len] 這邊用的是 Python 的 Slicing 語法，也就是 str[start:end]；其中 start 跟 end 是字串中的 index，會將字串切成從 start 開始到 end - 1（左閉右開） 。    如果省略 start，默認從字串的開頭開始；如果省略 end，默認到字串的結尾結束。        為什麼 class 裡面的第一個參數會是 self？    因為當我們在呼叫一個 class 裡面的函數時，呼叫上 Python 會自動將 class 本身當作第一個參數傳進去。    舉例來說：    class MyClass:    def __init__(self, value):        self.value = value  # 這裡的 self.value 是 Object 的 Attribute           def display(self):        print(self.value)# 初始化一個 Object，型態為前面做好的 classobj = MyClass(10)# 呼叫 class 裡面的函數obj.display()  # 輸出: 10        表面上，我們呼叫的是 obj.display()，實際上 Python 做的是 MyClass.display(obj)，Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參數必須是 self。  "
+  },
+  
+  {
+    "title": "1768. Merge Strings Alternately (Easy)",
+    "url": "/posts/1768/",
+    "categories": "Leetcode, Array/String",
+    "tags": "Leetcode, LeetCode 75",
+    "date": "2024-06-29 23:20:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "題目連結：Leetcode 連結解題思路這題思路很簡單，先初始化一個空的 List，開兩個變數 i, j 分別指著兩個 word，用一個 while 迴圈輪流把字元丟進去一個 List 裡面，最後再將 List 轉為字串再回傳。解答class Solution:    def mergeAlternately(self, word1: str, word2: str) -&gt; str: ...",
+    "content": "題目連結：Leetcode 連結解題思路這題思路很簡單，先初始化一個空的 List，開兩個變數 i, j 分別指著兩個 word，用一個 while 迴圈輪流把字元丟進去一個 List 裡面，最後再將 List 轉為字串再回傳。解答class Solution:    def mergeAlternately(self, word1: str, word2: str) -&gt; str:        i = 0        j = 0        merged = []        while i &lt; len(word1) and j &lt; len(word2):            merged.append(word1[i])            merged.append(word2[j])            i += 1            j += 1                while i &lt; len(word1):            merged.append(word1[i])            i += 1        while j &lt; len(word2):            merged.append(word2[j])            j += 1                # 將 merged 這個 list 裡面所有的元素連接起來變成一個字串，'' 指的是分隔符號為空        result = ''.join(merged)                 return result"
+  },
+  
+  {
+    "title": "OS 學習指南 - 目錄",
+    "url": "/posts/OS_README/",
+    "categories": "Lecture Notes, Operating System",
+    "tags": "OS",
+    "date": "2024-06-28 23:50:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "這裏有些什麼？這份 Lecture Notes 是來自我在修 112-2 施吉昇老師所開的作業系統課程時和諸多同學所做的共筆筆記，經過我自己重新整理轉換成更易讀後的版本。這份筆記包含老師上課所上的全部內容，加上課本經由我們篩選出的一些比較重要的部分，陪我們順利度過了當年的期中期末，希望能幫上後來的你們！  特別感謝洪佑全、顏佐霏、賴亮昕、劉軒齊願意讓我分享這些筆記！目標受眾  即將 / 正在...",
+    "content": "這裏有些什麼？這份 Lecture Notes 是來自我在修 112-2 施吉昇老師所開的作業系統課程時和諸多同學所做的共筆筆記，經過我自己重新整理轉換成更易讀後的版本。這份筆記包含老師上課所上的全部內容，加上課本經由我們篩選出的一些比較重要的部分，陪我們順利度過了當年的期中期末，希望能幫上後來的你們！  特別感謝洪佑全、顏佐霏、賴亮昕、劉軒齊願意讓我分享這些筆記！目標受眾  即將 / 正在修 OS 的同學  基於任何原因需要暸解 OS 相關知識的人文章目錄      Chapter 1 - Introduction        Chapter 2 - Operating-System Structures        Chapter 3 - Processes        Chapter 4 - Threads &amp; Concurrency        Chapter 5 - CPU Scheduling        Chapter 6 - Synchronization Tools        Chapter 7 - Synchronization Examples        Chapter 9 - Main Memory        Chapter 10 - Virtual Memory        Chapter 11 - Mass-Storage Systems        Chapter 12 - I/O Systems        Chapter 13 - File-System Interface        Chapter 14 - File-System Implementation        Chapter 15 File-System Internals  "
+  },
+  
+  {
+    "title": "Lecture 1 - Introduction to Basics",
+    "url": "/posts/NASA_Lecture1/",
+    "categories": "Lecture Notes, Network Administration and System Administration",
+    "tags": "NASA",
+    "date": "2024-06-28 16:34:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "要當一個稱職的網管，首先要有一些心理建設，最重要的一點是：「一個好網管就是讓人感受不到他的存在」。為了讓服務可以順利運作，人們訂了一些作為網管的 common sense，在對任何事情做決策時都會基於這些要點出發。服務等級協議 (Service Level Agreement, SLA)在網路與系統管理中，服務等級協議 (SLA) 是確保服務品質的重要機制。透過 SLA，服務提供者與客戶之間...",
+    "content": "要當一個稱職的網管，首先要有一些心理建設，最重要的一點是：「一個好網管就是讓人感受不到他的存在」。為了讓服務可以順利運作，人們訂了一些作為網管的 common sense，在對任何事情做決策時都會基於這些要點出發。服務等級協議 (Service Level Agreement, SLA)在網路與系統管理中，服務等級協議 (SLA) 是確保服務品質的重要機制。透過 SLA，服務提供者與客戶之間會建立明確的約定。我們會用以下指標來衡量服務的品質：  Maximum Tolerable Downtime, MTD：又稱為最大容忍停機時間。指的是一個組織在重大風險和業務損失變得不可承受以前，一個服務可以下線的最長時間。  Recovery Time Objective, RTO：指管理員預期在發生服務中斷後，恢復正常運作所需的最大時長。要注意的是 RTO 必須小於 MTD，也就是即使在最壞的情況下，服務恢復的速度也足以避免公司或是學校遭受無法挽回的損失。  Recovery Point Objective, RPO：指的是最後一次備份與災難發生時刻之間的時間間隔。通常會希望這時間越低越好，但如果備份的頻率過高也會造成資源的浪費，所以要取得平衡。管理原則有效的網路與系統管理不只是需要管理員的技術很強大，還需要遵守以下原則來確保服務穩定和使用者體驗良好：  服務的 Priority：每一個服務的重要性都不一樣。對於比較重要的服務，需要更短的 RPO 來減少損失。  Rollback Strategy：在進行任何更新前，確保保留一個舊有環境的完整備份，以便於更新出狀況時迅速回復。  測試執行：在正式環境部署前，先做好詳細的計畫和突發狀況處理守則，並且在測試環境中進行全面測試。  文件紀錄：Documentation 真的很重要！因為網路管理者的工作時常需要交接給別人，而良好的文件紀錄可以幫助新的網管較快上手。再者，有些服務可能一運行就是運行多年，而突然需要更新或是修理的時候就需要查看以前的人寫的文件，不然就只能去問當時的網管是如何設定的，這無疑非常沒有效率。實戰情境模擬接下來我們來模擬兩個情境，讓大家更了解這些原則的重要性。情境一：NTU COOL 影片儲存服務的 Recovery Strategy情境描述：NTU COOL的影片儲存服務因某次事件導致遺失了部分影片的檔案。但幸運的是，我們手中仍握有原始檔案。為了恢復服務，需要重新 encode 這些影片檔案。現在時間點是新學期的前一個禮拜，這時候通常是影片上傳量最大的時期，而我們系統的 CPU 資源有限，每天僅能重新 encode 約 500 個影片，但需要重新 encode 的影片總數約為 20,000 個。要怎麼設計一個好的 Recovery Strategy？參考策略：為了平衡不同 User（需觀看舊影片的 User 與需上傳新影片的 User）的需求，可以用 Two Queues Strategy：  Major Queue：優先處理新上傳的影片，確保新學期的學生可以有影片可以看。  Secondary Queue：在系統閒置時段（如半夜）再處理舊影片的 re-encode。情境二：防火牆服務不穩定最近 NTU COOL 團隊發現防火牆的服務不太穩定，導致很多 Users 的連線會突然中斷或是速度減慢。現在時間點在期中周前一個禮拜的某天早上八點，你是 COOL 團隊的網管，這時你會怎麼做？參考策略：  立即行動：如果有可以用的備用防火牆，應立即進行切換，減少服務中斷的影響。  建立維護計畫並且與使用者溝通：          若有備用設備：計劃在非高峰時段（如半夜的 3:00-6:00）進行防火牆的更換作業，並提前通知所有 Users，解釋更換的原因及預計的維護時間。      若沒有備用設備：向用戶宣布目前的問題和短期內無法解決的情況，並趕快道歉。同時要儘快訂購新的防火牆設備，安排在下一週的早上進行安裝和切換。        長期策略：檢討現有的防火牆維護計劃和技術，確保未來能有更穩定的表現以防止類似事件再次發生。"
+  },
+  
+  {
+    "title": "NASA 求生指南 - 目錄",
+    "url": "/posts/NASA_README/",
+    "categories": "Lecture Notes, Network Administration and System Administration",
+    "tags": "NASA",
+    "date": "2024-06-28 00:54:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "  “The best way to predict the future is to study the past, or prognosticate.” - Robert Kiyosaki這裏有些什麼？身為臺大資訊系的 NASA 成員，我有幸走過 NASA 一階、二階和三階的訓練，同時也架設過多個大型網路服務，並且覺得這堂課的內容是我大學求學過程中數一數二實用且對於我影響深遠的課程。但在...",
+    "content": "  “The best way to predict the future is to study the past, or prognosticate.” - Robert Kiyosaki這裏有些什麼？身為臺大資訊系的 NASA 成員，我有幸走過 NASA 一階、二階和三階的訓練，同時也架設過多個大型網路服務，並且覺得這堂課的內容是我大學求學過程中數一數二實用且對於我影響深遠的課程。但在過程中我發現，NASA 帶給大家的痛苦遠高於大家所能承受，主要原因在於這些技術本身技術門檻就不低，即使你是平時寫程式的能手，甚至是演算法競賽選手，可能也不太擅長找需要的文檔，或是看懂每個工具的 Manual。還有一個問題是：若為本系學生，NASA 修習的學生們大多為大一，還沒有修習過作業系統相關的課程，基礎也較為薄弱，又要同時修 DSA，Loading 負荷實在過大，很難好好享受這堂課。這裡將會綜合我兩年以來的網管生涯的所有經驗，以蔡欣穆老師的 NASA 一階課程為綱要，並且補充所有我已經知道的知識，還有遇到相關問題要怎麼查資料 / 用哪些關鍵字，希望能幫助大家更好的在這門課上生存。目標受眾  即將 / 正在修 NASA 的同學  對於 NASA 的內容感到好奇、卻無從入手的初學者  目前的工作需要了解網路管理 or 系統管理，有一定基礎的資訊人員文章目錄  Introduction to Basics          Lab1 - Basic Knowledge of Network Cables      IP, IPv6, 5 Layers        Unix Basics          Lab2 - Shell Script Tutorial      Unix Basic Concept      Unix Basic Commands (including vim)      File Permission (including acl)        Partitioning and Filesystems          Lab3 - Partition + LVM + Filesystem + RAID Setup      Partitioning      LVM      Filesystem      Software RAID        Cisco Switch Advanced Functionality          Lab4 - Cisco Switch Setup      VLAN      Cluster        Introduction to Virtualization          Lab5 - Docker/Kubernetes Tutorial      VM, libvirt, KVM, LXC, Docker        IP Layer Basics and Networking Tools          Lab6 - OPNSense Firewall Tutorial      ifconfig, route, ip, iptables, nslookup, dig, arp        Kernel and Package Management          Lab7 - LDAP Setup Tutorial      Kernel      Package Management      LDAP        Networking Services          Lab8 - DNS Server Setup Tutorial      DNS &amp; DHCP &amp; NAT &amp; VPN        System Configuration and Debugging          Lab9 - NFS Setup Tutorial      Network Interfaces Setup      IP Address Configuration      Debug with System Logs      NFS      Debug Tools        Wireless Networking          Lab10 - WiFi Tutorial      Wireless Physical Layer      Wireless Link Layer and 802.11        Web Servers          Lab11 - Web Server and Wordpress      Web Server      Wordpress      "
+  },
+  
+  {
+    "title": "Leetcode 刷題筆記 - 目錄",
+    "url": "/posts/Leetcode_README/",
+    "categories": "Leetcode, README",
+    "tags": "Leetcode",
+    "date": "2024-06-28 00:54:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "這裡有些什麼？這裡放的是我平常寫 Leetcode 抓手感的筆記記錄，裡面會記下我解每一題 Leetcode 的解題思路與程式碼，並且按照主題分類好。會做這個主題主要是為了學 Python，因此我的筆記裡面會記錄我在每一題裡面學到的 Python 語法。我大致上將其分成以下主題：  Array / String  Hashing  Linked lists  Stacks and queue...",
+    "content": "這裡有些什麼？這裡放的是我平常寫 Leetcode 抓手感的筆記記錄，裡面會記下我解每一題 Leetcode 的解題思路與程式碼，並且按照主題分類好。會做這個主題主要是為了學 Python，因此我的筆記裡面會記錄我在每一題裡面學到的 Python 語法。我大致上將其分成以下主題：  Array / String  Hashing  Linked lists  Stacks and queues  Trees and graphs  Heaps  Greedy  Binary search  Backtracking  Dynamic programming"
+  }
+  
+]
+
