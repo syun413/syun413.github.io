@@ -1,6 +1,40 @@
 [
   
   {
+    "title": "Lecture 6 - IP Layer Basics and Networking Tools",
+    "url": "/posts/NASA_Lecture6/",
+    "categories": "Lecture Notes, Network Administration and System Administration",
+    "tags": "NASA",
+    "date": "2024-07-28 16:34:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "嗨~~",
+    "content": "嗨~~"
+  },
+  
+  {
+    "title": "605. Can Place Flowers (Easy)",
+    "url": "/posts/605/",
+    "categories": "Leetcode, Array/String",
+    "tags": "Leetcode, LeetCode 75",
+    "date": "2024-07-02 00:27:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "題目連結：Leetcode 連結解題思路寫這題的時候我耍笨了兩次，用了兩個錯誤辦法：  第一次我是想求當前情況下還可以插幾朵花，方法如下：          先算整個 List 的總和，紀錄為 total_sum。      根據 n 的情況做條件判斷：                  若 n 為偶數，則 max_flowers 為 n // 2。          若 n 為奇數，且第一...",
+    "content": "題目連結：Leetcode 連結解題思路寫這題的時候我耍笨了兩次，用了兩個錯誤辦法：  第一次我是想求當前情況下還可以插幾朵花，方法如下：          先算整個 List 的總和，紀錄為 total_sum。      根據 n 的情況做條件判斷：                  若 n 為偶數，則 max_flowers 為 n // 2。          若 n 為奇數，且第一項為 1，則 max_flowers 為 n // 2 + 1（舉例：[1, 0, 1, 0, 1]）。          若 n 為奇數，且第一項為 0，則 max_flowers 為 n // 2 （舉例：[0, 1, 0, 1, 0]）。                    用 max_flowers - total_sum 即為還可以插多少花，再去跟 n 比。        這樣的方法錯就錯在算 max_flowers上面，因為不一定可以 [1, 0, 1, 0, 1]，舉個反例就是 [1, 0, 1, 0, 0, 1]，若 n = 1，這個反例答案應該是 False，但我的方法會輸出 True。  "
+  },
+  
+  {
     "title": "1431. Kids With the Greatest Number of Candies (Easy)",
     "url": "/posts/1431/",
     "categories": "Leetcode, Array/String",
