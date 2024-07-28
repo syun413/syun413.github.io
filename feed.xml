@@ -4,7 +4,7 @@
   <id>https://syun413.github.io/</id>
   <title>KUANHSUN TU</title>
   <subtitle>This is the personal academic website of KUANHSUN TU, showcasing my research, notes, and academic projects.</subtitle>
-  <updated>2024-07-01T13:40:07+08:00</updated>
+  <updated>2024-07-28T21:16:36+08:00</updated>
   <author>
     <name>KUANHSUN TU</name>
     <uri>https://syun413.github.io/</uri>
@@ -17,6 +17,58 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Lecture 6 - IP Layer Basics and Networking Tools</title>
+    <link href="https://syun413.github.io/posts/NASA_Lecture6/" rel="alternate" type="text/html" title="Lecture 6 - IP Layer Basics and Networking Tools" />
+    <published>2024-07-28T16:34:00+08:00</published>
+  
+    <updated>2024-07-28T16:34:00+08:00</updated>
+  
+    <id>https://syun413.github.io/posts/NASA_Lecture6/</id>
+    <content src="https://syun413.github.io/posts/NASA_Lecture6/" />
+    <author>
+      <name>KUANHSUN TU</name>
+    </author>
+
+  
+    
+    <category term="Lecture Notes" />
+    
+    <category term="Network Administration and System Administration" />
+    
+  
+
+  <summary>ifconfig, route, ip, iptables, nslookup, dig, arp</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>605. Can Place Flowers (Easy)</title>
+    <link href="https://syun413.github.io/posts/605/" rel="alternate" type="text/html" title="605. Can Place Flowers (Easy)" />
+    <published>2024-07-02T00:27:00+08:00</published>
+  
+    <updated>2024-07-02T00:27:00+08:00</updated>
+  
+    <id>https://syun413.github.io/posts/605/</id>
+    <content src="https://syun413.github.io/posts/605/" />
+    <author>
+      <name>KUANHSUN TU</name>
+    </author>
+
+  
+    
+    <category term="Leetcode" />
+    
+    <category term="Array/String" />
+    
+  
+
+  <summary>605. Can Place Flowers Solution</summary>
+
+  </entry>
 
   
   <entry>
@@ -93,58 +145,6 @@
   
 
   <summary>1768. Merge Strings Alternately Solution</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>OS 學習指南 - 目錄</title>
-    <link href="https://syun413.github.io/posts/OS_README/" rel="alternate" type="text/html" title="OS 學習指南 - 目錄" />
-    <published>2024-06-28T23:50:00+08:00</published>
-  
-    <updated>2024-06-28T23:50:00+08:00</updated>
-  
-    <id>https://syun413.github.io/posts/OS_README/</id>
-    <content src="https://syun413.github.io/posts/OS_README/" />
-    <author>
-      <name>KUANHSUN TU</name>
-    </author>
-
-  
-    
-    <category term="Lecture Notes" />
-    
-    <category term="Operating System" />
-    
-  
-
-  <summary>Operating System Learning Guide</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Lecture 1 - Introduction to Basics</title>
-    <link href="https://syun413.github.io/posts/NASA_Lecture1/" rel="alternate" type="text/html" title="Lecture 1 - Introduction to Basics" />
-    <published>2024-06-28T16:34:00+08:00</published>
-  
-    <updated>2024-06-28T16:34:00+08:00</updated>
-  
-    <id>https://syun413.github.io/posts/NASA_Lecture1/</id>
-    <content src="https://syun413.github.io/posts/NASA_Lecture1/" />
-    <author>
-      <name>KUANHSUN TU</name>
-    </author>
-
-  
-    
-    <category term="Lecture Notes" />
-    
-    <category term="Network Administration and System Administration" />
-    
-  
-
-  <summary>Introduction to basic concepts of NASA</summary>
 
   </entry>
 
