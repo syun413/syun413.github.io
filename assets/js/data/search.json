@@ -120,6 +120,23 @@
   },
   
   {
+    "title": "Workstation 使用技巧：Docker 架設與清除教學",
+    "url": "/posts/workstation_docker/",
+    "categories": "Workstation",
+    "tags": "workstation",
+    "date": "2024-06-28 00:54:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "工作站使用 Docker 指南這份文件裡面包含在工作站裡面架設 rootless docker 以及將 docker 清除的全部指令。準備工作做完以下指令後，docker 的大型資料（如 images）都會被放到 /tmp2 裡，我們可以快樂的在家目錄裡面使用 docker，不用擔心容量爆掉。id -u # 這個指令可以知道自己的 [ID]mkdir /tmp2/khtu # khtu 可以...",
+    "content": "工作站使用 Docker 指南這份文件裡面包含在工作站裡面架設 rootless docker 以及將 docker 清除的全部指令。準備工作做完以下指令後，docker 的大型資料（如 images）都會被放到 /tmp2 裡，我們可以快樂的在家目錄裡面使用 docker，不用擔心容量爆掉。id -u # 這個指令可以知道自己的 [ID]mkdir /tmp2/khtu # khtu 可以換成自己的名稱，下面的指令皆是同理chmod 711 /tmp2/khtucd ~linger-switch enablesubuid-registercurl -fsSL https://get.docker.com/rootless | DOCKER_BIN=/tmp2/khtu/bin shecho 'export PATH=/tmp2/khtu/bin:$PATH' &gt;&gt; ~/.bashrcecho 'export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock' &gt;&gt; ~/.bashrcsource ~/.bashrcmkdir -p ~/.config/dockernano ~/.config/docker/daemon.json# 在 ~/.config/docker/daemon.json 添加以下內容{    \"data-root\": \"/tmp2/khtu/docker\"}systemctl --user daemon-reloadsystemctl --user restart docker啟動 docker每次工作前，記得先執行以下指令，才能正常使用 Docker：source ~/.bashrcsystemctl --user start dockersystemctl --user status docker # 檢查 Docker 狀態定期清理 Docker這個指令會清除未使用的 container、images等，從而釋放硬碟的空間：docker system prune -a 刪除 Docker如果想要徹底清除 Docker，就執行以下指令：systemctl --user stop dockerrm -rf ~/bin/docker ~/bin/dockerd ~/bin/docker-init ~/bin/docker-proxyid -u # 取得自己的 [ID]rm -rf /tmp2/[ID]/docker/bin # 用上面得到的數字替換 [ID]rm -rf ~/.config/dockerrm -rf ~/.local/share/dockerrm -rf /tmp2/[ID]/docker # 如果自己的資料放在 /tmp2rm -rf /run/user/$(id -u)/docker.socknano ~/.bashrc# 刪掉以下內容export PATH=$HOME/bin:$PATHexport DOCKER_HOST=unix:///run/user/$(id -u)/docker.socksource ~/.bashrcrm -rf ~/.config/systemd/user/docker.servicerm -rf ~/.config/systemd/user/docker.socket記得再執行 ls -al 家目錄跟 ``/tmp2/` 看一下有沒有漏掉沒刪好的東西。"
+  },
+  
+  {
     "title": "NASA 求生指南 - 目錄",
     "url": "/posts/NASA_README/",
     "categories": "Lecture Notes, Network Administration and System Administration",
