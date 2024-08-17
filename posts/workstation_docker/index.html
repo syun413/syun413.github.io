@@ -630,7 +630,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="383 words"
+  title="421 words"
 >
   <em>2 min</em> read</span>
 
@@ -645,55 +645,101 @@
 
 <h2 id="準備工作"><span class="me-2">準備工作</span><a href="#準備工作" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>做完以下指令後，docker 的大型資料（如 images）都會被放到 <code class="language-plaintext highlighter-rouge">/tmp2</code> 裡，我們可以快樂的在家目錄裡面使用 docker，不用擔心容量爆掉。</p>
-<pre><code class="language-bash!">id -u # 這個指令可以知道自己的 [ID]
-mkdir /tmp2/khtu # khtu 可以換成自己的名稱，下面的指令皆是同理
-chmod 711 /tmp2/khtu
-cd ~
-linger-switch enable
-subuid-register
-curl -fsSL https://get.docker.com/rootless | DOCKER_BIN=/tmp2/khtu/bin sh
-echo 'export PATH=/tmp2/khtu/bin:$PATH' &gt;&gt; ~/.bashrc
-echo 'export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock' &gt;&gt; ~/.bashrc
-source ~/.bashrc
-mkdir -p ~/.config/docker
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="nb">id</span> <span class="nt">-u</span> <span class="c"># 這個指令可以知道自己的 [ID]</span>
+<span class="nb">mkdir</span> /tmp2/khtu <span class="c"># khtu 可以換成自己的名稱，下面的指令皆是同理</span>
+<span class="nb">chmod </span>711 /tmp2/khtu
+<span class="nb">cd</span> ~
+linger-switch <span class="nb">enable
+</span>subuid-register
+curl <span class="nt">-fsSL</span> https://get.docker.com/rootless | <span class="nv">DOCKER_BIN</span><span class="o">=</span>/tmp2/khtu/bin sh
+<span class="nb">echo</span> <span class="s1">'export PATH=/tmp2/khtu/bin:$PATH'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">echo</span> <span class="s1">'export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">source</span> ~/.bashrc
+<span class="nb">mkdir</span> <span class="nt">-p</span> ~/.config/docker
 nano ~/.config/docker/daemon.json
-# 在 ~/.config/docker/daemon.json 添加以下內容
-{
-    "data-root": "/tmp2/khtu/docker"
-}
-systemctl --user daemon-reload
-systemctl --user restart docker
-</code></pre>
+<span class="c"># 在 ~/.config/docker/daemon.json 添加以下內容</span>
+<span class="o">{</span>
+    <span class="s2">"data-root"</span>: <span class="s2">"/tmp2/khtu/docker"</span>
+<span class="o">}</span>
+systemctl <span class="nt">--user</span> daemon-reload
+systemctl <span class="nt">--user</span> restart docker
+</pre></td></tr></tbody></table></code></div></div>
 <h2 id="啟動-docker"><span class="me-2">啟動 docker</span><a href="#啟動-docker" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>每次工作前，記得先執行以下指令，才能正常使用 Docker：</p>
-<pre><code class="language-bash!">source ~/.bashrc
-systemctl --user start docker
-systemctl --user status docker # 檢查 Docker 狀態
-</code></pre>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nb">source</span> ~/.bashrc
+systemctl <span class="nt">--user</span> start docker
+systemctl <span class="nt">--user</span> status docker <span class="c"># 檢查 Docker 狀態</span>
+</pre></td></tr></tbody></table></code></div></div>
 <h2 id="定期清理-docker"><span class="me-2">定期清理 Docker</span><a href="#定期清理-docker" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>這個指令會清除未使用的 container、images等，從而釋放硬碟的空間：</p>
-<pre><code class="language-bash!">docker system prune -a 
-</code></pre>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>docker system prune <span class="nt">-a</span> 
+</pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="刪除-docker"><span class="me-2">刪除 Docker</span><a href="#刪除-docker" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>如果想要徹底清除 Docker，就執行以下指令：</p>
-<pre><code class="language-bash!">systemctl --user stop docker
-rm -rf ~/bin/docker ~/bin/dockerd ~/bin/docker-init ~/bin/docker-proxy
-id -u # 取得自己的 [ID]
-rm -rf /tmp2/[ID]/docker/bin # 用上面得到的數字替換 [ID]
-rm -rf ~/.config/docker
-rm -rf ~/.local/share/docker
-rm -rf /tmp2/[ID]/docker # 如果自己的資料放在 /tmp2
-rm -rf /run/user/$(id -u)/docker.sock
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>systemctl <span class="nt">--user</span> stop docker
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/bin/docker ~/bin/dockerd ~/bin/docker-init ~/bin/docker-proxy
+<span class="nb">id</span> <span class="nt">-u</span> <span class="c"># 取得自己的 [ID]</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> /tmp2/[ID]/docker/bin <span class="c"># 用上面得到的數字替換 [ID]</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.config/docker
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.local/share/docker
+<span class="nb">rm</span> <span class="nt">-rf</span> /tmp2/[ID]/docker <span class="c"># 如果自己的資料放在 /tmp2</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> /run/user/<span class="si">$(</span><span class="nb">id</span> <span class="nt">-u</span><span class="si">)</span>/docker.sock
 nano ~/.bashrc
-# 刪掉以下內容
-export PATH=$HOME/bin:$PATH
-export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock
+<span class="c"># 刪掉以下內容</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span><span class="nv">DOCKER_HOST</span><span class="o">=</span>unix:///run/user/<span class="si">$(</span><span class="nb">id</span> <span class="nt">-u</span><span class="si">)</span>/docker.sock
 
-source ~/.bashrc
-rm -rf ~/.config/systemd/user/docker.service
-rm -rf ~/.config/systemd/user/docker.socket
-</code></pre>
+<span class="nb">source</span> ~/.bashrc
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.config/systemd/user/docker.service
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.config/systemd/user/docker.socket
+</pre></td></tr></tbody></table></code></div></div>
 <p>記得再執行 <code class="language-plaintext highlighter-rouge">ls -al</code> 家目錄跟 ``/tmp2/<User>` 看一下有沒有漏掉沒刪好的東西。</User></p>
 
   </div>
