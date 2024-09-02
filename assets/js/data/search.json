@@ -120,9 +120,9 @@
   },
   
   {
-    "title": "Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全",
+    "title": "Workstation 使用技巧：架設 Miniconda 並離線跑 Machine Learning 設定大全",
     "url": "/posts/workstation_conda/",
-    "categories": "Workstation",
+    "categories": "Workstation, Machine Learning",
     "tags": "workstation",
     "date": "2024-06-28 00:54:00 +0800",
     
