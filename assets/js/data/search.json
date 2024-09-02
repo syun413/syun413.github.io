@@ -120,6 +120,23 @@
   },
   
   {
+    "title": "Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全",
+    "url": "/posts/workstation_conda/",
+    "categories": "Workstation",
+    "tags": "workstation",
+    "date": "2024-06-28 00:54:00 +0800",
+    
+
+
+
+
+
+    
+    "snippet": "如何在 CSIE Workstation 上跑 Machine LearningSetup首先，為了讓我們能在工作站順利跑 Miniconda，我們希望做到以下三件事：  避免塞爆家目錄：由於家目錄有容量限制（2G），因此我們要將家目錄中的 .cache 指向沒有容量限制的 /tmp2，避免 conda 和 python 在執行時產生的 .cache 塞爆家目錄。  在 /tmp2 上裝好 ...",
+    "content": "如何在 CSIE Workstation 上跑 Machine LearningSetup首先，為了讓我們能在工作站順利跑 Miniconda，我們希望做到以下三件事：  避免塞爆家目錄：由於家目錄有容量限制（2G），因此我們要將家目錄中的 .cache 指向沒有容量限制的 /tmp2，避免 conda 和 python 在執行時產生的 .cache 塞爆家目錄。  在 /tmp2 上裝好 Miniconda：方便我們管理 Python 的環境，並且儘量不要使用到家目錄本身的容量。  設定好環境變數：conda 在設定的時候也讓他儘量都用 /tmp2 的空間。可以參考以下的 Shell Sctipt：#!/bin/bash# 設置 username，khtu 換成自己的 usernameUSERNAME=\"khtu\"mkdir -p /tmp2/$USERNAME/minicondawget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp2/$USERNAME/miniconda/miniconda.shbash /tmp2/$USERNAME/miniconda/miniconda.sh -b -u -p /tmp2/$USERNAME/minicondarm -rf /tmp2/$USERNAME/miniconda/miniconda.sh/tmp2/$USERNAME/miniconda/bin/conda init bashsource ~/.bashrcecho \"export CONDA_PKGS_DIRS=/tmp2/$USERNAME/miniconda/pkgs\" &gt;&gt; ~/.bashrcecho \"export PYTHONUSERBASE=/tmp2/$USERNAME/.local\" &gt;&gt; ~/.bashrcecho \"export PIP_CACHE_DIR=/tmp2/$USERNAME/.cache/pip\" &gt;&gt; ~/.bashrcmkdir -p /tmp2/$USERNAME/miniconda/pkgsmkdir -p /tmp2/$USERNAME/.localmkdir -p /tmp2/$USERNAME/.cache/pipsource ~/.bashrc想直接使用的話，就開一個檔案叫 init_conda.sh，將上面的內容複製貼上，並執行以下指令：bash init_conda.shexitssh &lt;username&gt;@meow1.csie.ntu.edu.twsource ~/.bashrc之後每次使用都要記得先 source ~/.bashrc。如果有設定不小心設定爛了，想要清掉所有 conda 產生的 cache，執行以下指令：conda clean --all如此一來，你就可以自由的在工作站上跑 conda 了！Uninstall Miniconda有時候覺得自己用不到 Miniconda，想要讓工作站上的目錄乾淨一些，可以執行以下指令徹底刪除。rm -rf ~/minicondavim ~/.bashrc# 將 &gt;&gt;&gt; conda initialize &gt;&gt;&gt; 包起來的內容刪除source ~/.bashrcrm -rf /tmp2/.cacherm -rf /tmp2/.localrm -rf ~/.cacherm -rf /tmp2/khtu/.cacherm -rf ~/.conda離線跑 Machine Learning有時，我們想要模型跑隔夜，但晝夜守著電腦或是一直維持電腦 ssh 連線是一件很難做到的事，這時我們可以使用 tmux 來讓我們的模型跑隔夜！tmux 的基本邏輯tmux 是一種很好用的終端機管理工具，適合在需要長時間運行的工作中使用，特別是當我們需要跑 Machine Learning 且時長非常久時非常實用。它允許你在終端機中開啟多個 session，每個 session 之間相互獨立運行，即使你中途斷線（例如使用 SSH 連線時），這些 session 仍然會繼續在背景中運行，不受影響。tmux 的結構總共分了三層：  session：每次在終端機下 tmux 這個指令就會開一個 session，每個 session 互相獨立，可以在背景跑，即使 ssh 斷線也會存在。          舉例來說，你可以連上工作站打 tmux 並執行 python train.py 開一個 session 在背景跑 Machine Learning，接著就可以斷線做自己的事，等結束以後再透過 tmux a 進去收割結果。        window：在一個 session 中，你可以開很多個 windows，每個 window 相當於一個獨立的視窗。  pane：一個 window 可以切割成很多部分，讓你在同一個視窗內同時看很多程式。References: Linux tmux 終端機管理工具使用教學tmux 終端機可以下的指令  在一般終端機的情況下：          tmux：開一個 session，下面有一條綠綠的一條就對了（其實也可能是其他顏色）      tmux kill-server：關閉所有 session      tmux a：切換回背景的 session        進入 tmux 的情況：          基本指令：                  exit：關閉當前 session          ctrl+b 鬆開再按 d：切換回正常終端機，tmux 會運行在背景                    session 設定                  ctrl+b 鬆開再打 s：切換 session                    window 設定                  ctrl+b 鬆開再打 c：開一個 window          ctrl+b 鬆開再打 w：切換 window          ctrl+b 鬆開再打 &amp;：關閉當前 window                    pane 設定                  ctrl+b 鬆開再打 %：左右切一個 pane          ctrl+b 鬆開再打 “：上下切一個 pane          ctrl+d：關閉當前 pane          ctrl+b + 上下左右鍵：切換 pane                    想要可以選取並複製貼上：                  先按 ctrl-b + 打出冒號 :，再打 setw -g mouse off，就可以自由選字並任意複製貼上，但無法用滑鼠上下滾動。                    想要滑鼠上下滾動：                  先按 ctrl-b + 打出冒號 :，再打 setw -g mouse on。                    "
+  },
+  
+  {
     "title": "Workstation 使用技巧：Docker 架設與清除教學",
     "url": "/posts/workstation_docker/",
     "categories": "Workstation, Docker",

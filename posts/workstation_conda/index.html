@@ -30,23 +30,23 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Greatest Common Divisor of Strings (Easy)" />
+<meta property="og:title" content="Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Greatest Common Divisor of Strings Solution" />
-<meta property="og:description" content="Greatest Common Divisor of Strings Solution" />
-<link rel="canonical" href="https://syun413.github.io/posts/1071/" />
-<meta property="og:url" content="https://syun413.github.io/posts/1071/" />
+<meta name="description" content="Miniconda Setup and Clean-up Tutorial" />
+<meta property="og:description" content="Miniconda Setup and Clean-up Tutorial" />
+<link rel="canonical" href="https://syun413.github.io/posts/workstation_conda/" />
+<meta property="og:url" content="https://syun413.github.io/posts/workstation_conda/" />
 <meta property="og:site_name" content="KUANHSUN TU" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-06-30T00:49:00+08:00" />
+<meta property="article:published_time" content="2024-06-28T00:54:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Greatest Common Divisor of Strings (Easy)" />
+<meta property="twitter:title" content="Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-06-30T00:49:00+08:00","datePublished":"2024-06-30T00:49:00+08:00","description":"Greatest Common Divisor of Strings Solution","headline":"Greatest Common Divisor of Strings (Easy)","mainEntityOfPage":{"@type":"WebPage","@id":"https://syun413.github.io/posts/1071/"},"url":"https://syun413.github.io/posts/1071/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-06-28T00:54:00+08:00","datePublished":"2024-06-28T00:54:00+08:00","description":"Miniconda Setup and Clean-up Tutorial","headline":"Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全","mainEntityOfPage":{"@type":"WebPage","@id":"https://syun413.github.io/posts/workstation_conda/"},"url":"https://syun413.github.io/posts/workstation_conda/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>1071. Greatest Common Divisor of Strings (Easy) | KUANHSUN TU
+  <title>Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全 | KUANHSUN TU
   </title>
 
   <!--
@@ -390,7 +390,7 @@
         
           
             
-              <span>1071. Greatest Common Divisor of Strings (Easy)</span>
+              <span>Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全</span>
             
 
           
@@ -458,6 +458,79 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -521,6 +594,38 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
@@ -542,9 +647,9 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>1071. Greatest Common Divisor of Strings (Easy)</h1>
+    <h1 data-toc-skip>Workstation 使用技巧：架設 conda 並離線跑 Machine Learning 設定大全</h1>
     
-      <p class="post-desc fw-light mb-4">1071. Greatest Common Divisor of Strings Solution</p>
+      <p class="post-desc fw-light mb-4">Miniconda Setup and Clean-up Tutorial</p>
     
 
     <div class="post-meta text-muted">
@@ -561,13 +666,13 @@
 
 <time
   
-  data-ts="1719679740"
+  data-ts="1719507240"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jun 30, 2024
+  Jun 28, 2024
 </time>
 
       </span>
@@ -619,9 +724,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="459 words"
+  title="1067 words"
 >
-  <em>2 min</em> read</span>
+  <em>5 min</em> read</span>
 
         </div>
       </div>
@@ -629,87 +734,143 @@
   </header>
 
   <div class="content">
-    <p>題目連結：<a href="https://leetcode.com/problems/greatest-common-divisor-of-strings/description/?envType=study-plan-v2&amp;envId=leetcode-75"><strong>Leetcode 連結</strong></a></p>
-
-<h2 id="解題思路"><span class="me-2">解題思路</span><a href="#解題思路" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>首先，先檢查 str1 + str2 跟 str2 + str1 一不一樣，如果不一樣的話就可以直接回傳空字串。</p>
-
-<p>證明：
-假設最大公因數字串 x 真的存在，且 str1 的長度為 n， str2 的長度為 m，則：</p>
+    <h1 id="如何在-csie-workstation-上跑-machine-learning">如何在 CSIE Workstation 上跑 Machine Learning</h1>
+<h2 id="setup"><span class="me-2">Setup</span><a href="#setup" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>首先，為了讓我們能在工作站順利跑 Miniconda，我們希望做到以下三件事：</p>
 <ul>
-  <li>$str1 + str2 = x * n + x * m = x * (n + m) = x * m + x * n = str1 + str2$</li>
+  <li>避免塞爆家目錄：由於家目錄有容量限制（2G），因此我們要將家目錄中的 .cache 指向沒有容量限制的 <code class="language-plaintext highlighter-rouge">/tmp2</code>，避免 conda 和 python 在執行時產生的 <code class="language-plaintext highlighter-rouge">.cache</code> 塞爆家目錄。</li>
+  <li>在 /tmp2 上裝好 Miniconda：方便我們管理 Python 的環境，並且儘量不要使用到家目錄本身的容量。</li>
+  <li>設定好環境變數：conda 在設定的時候也讓他儘量都用 /tmp2 的空間。</li>
 </ul>
 
-<p>故若 $str1 + str2 \neq str2 + str1$，則 x 不存在。</p>
+<p>可以參考以下的 Shell Sctipt：</p>
+<pre><code class="language-bash!">#!/bin/bash
 
-<p>檢查完以後，我們可以確定 x 存在，那就只要算出 m, n 的最大公因數 <code class="language-plaintext highlighter-rouge">gcd_length</code>，就可以直接回傳 <code class="language-plaintext highlighter-rouge">str1[:gcd_length]</code>。</p>
+# 設置 username，khtu 換成自己的 username
+USERNAME="khtu"
 
-<h2 id="解答"><span class="me-2">解答</span><a href="#解答" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<div class="language-python highlighter-rouge"><div class="code-header">
-        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">math</span>
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">gcdOfStrings</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">str1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">str2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="nf">if </span><span class="p">(</span><span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">str2</span> <span class="o">+</span> <span class="n">str1</span><span class="p">):</span>
-            <span class="k">return</span> <span class="sh">""</span>
-        
-        <span class="n">gcd_len</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="nf">gcd</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">str1</span><span class="p">),</span> <span class="nf">len</span><span class="p">(</span><span class="n">str2</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">str1</span><span class="p">[:</span><span class="n">gcd_len</span><span class="p">]</span>
-</pre></td></tr></tbody></table></code></div></div>
+mkdir -p /tmp2/$USERNAME/miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp2/$USERNAME/miniconda/miniconda.sh
 
-<h2 id="python-語法補充"><span class="me-2">Python 語法補充</span><a href="#python-語法補充" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ol>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">str1[:gcd_len]</code> 這邊用的是 Python 的 Slicing 語法，也就是 <code class="language-plaintext highlighter-rouge">str[start:end]</code>；其中 <code class="language-plaintext highlighter-rouge">start</code> 跟 <code class="language-plaintext highlighter-rouge">end</code> 是字串中的 index，會將字串切成從 <code class="language-plaintext highlighter-rouge">start</code> 開始到 <code class="language-plaintext highlighter-rouge">end - 1</code>（左閉右開） 。</p>
+bash /tmp2/$USERNAME/miniconda/miniconda.sh -b -u -p /tmp2/$USERNAME/miniconda
 
-    <p>如果省略 <code class="language-plaintext highlighter-rouge">start</code>，默認從字串的開頭開始；如果省略 <code class="language-plaintext highlighter-rouge">end</code>，默認到字串的結尾結束。</p>
+rm -rf /tmp2/$USERNAME/miniconda/miniconda.sh
+
+/tmp2/$USERNAME/miniconda/bin/conda init bash
+
+source ~/.bashrc
+
+echo "export CONDA_PKGS_DIRS=/tmp2/$USERNAME/miniconda/pkgs" &gt;&gt; ~/.bashrc
+echo "export PYTHONUSERBASE=/tmp2/$USERNAME/.local" &gt;&gt; ~/.bashrc
+echo "export PIP_CACHE_DIR=/tmp2/$USERNAME/.cache/pip" &gt;&gt; ~/.bashrc
+
+mkdir -p /tmp2/$USERNAME/miniconda/pkgs
+mkdir -p /tmp2/$USERNAME/.local
+mkdir -p /tmp2/$USERNAME/.cache/pip
+
+source ~/.bashrc
+</code></pre>
+
+<p>想直接使用的話，就開一個檔案叫 <code class="language-plaintext highlighter-rouge">init_conda.sh</code>，將上面的內容複製貼上，並執行以下指令：</p>
+<pre><code class="language-bash!">bash init_conda.sh
+exit
+ssh &lt;username&gt;@meow1.csie.ntu.edu.tw
+source ~/.bashrc
+</code></pre>
+<p>之後每次使用都要記得先 <code class="language-plaintext highlighter-rouge">source ~/.bashrc</code>。</p>
+
+<p>如果有設定不小心設定爛了，想要清掉所有 conda 產生的 cache，執行以下指令：</p>
+<pre><code class="language-bash!">conda clean --all
+</code></pre>
+
+<p>如此一來，你就可以自由的在工作站上跑 conda 了！</p>
+
+<h2 id="uninstall-miniconda"><span class="me-2">Uninstall Miniconda</span><a href="#uninstall-miniconda" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>有時候覺得自己用不到 Miniconda，想要讓工作站上的目錄乾淨一些，可以執行以下指令徹底刪除。</p>
+
+<pre><code class="language-bash!">rm -rf ~/miniconda
+vim ~/.bashrc
+# 將 &gt;&gt;&gt; conda initialize &gt;&gt;&gt; 包起來的內容刪除
+source ~/.bashrc
+
+rm -rf /tmp2/.cache
+rm -rf /tmp2/.local
+rm -rf ~/.cache
+rm -rf /tmp2/khtu/.cache
+rm -rf ~/.conda
+</code></pre>
+
+<h2 id="離線跑-machine-learning"><span class="me-2">離線跑 Machine Learning</span><a href="#離線跑-machine-learning" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>有時，我們想要模型跑隔夜，但晝夜守著電腦或是一直維持電腦 ssh 連線是一件很難做到的事，這時我們可以使用 tmux 來讓我們的模型跑隔夜！</p>
+
+<h3 id="tmux-的基本邏輯"><span class="me-2">tmux 的基本邏輯</span><a href="#tmux-的基本邏輯" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p>tmux 是一種很好用的終端機管理工具，適合在需要長時間運行的工作中使用，特別是當我們需要跑 Machine Learning 且時長非常久時非常實用。</p>
+
+<p>它允許你在終端機中開啟多個 session，每個 session 之間相互獨立運行，即使你中途斷線（例如使用 SSH 連線時），這些 session 仍然會繼續在背景中運行，不受影響。</p>
+
+<p>tmux 的結構總共分了三層：</p>
+<ul>
+  <li>session：每次在終端機下 <code class="language-plaintext highlighter-rouge">tmux</code> 這個指令就會開一個 session，每個 session 互相獨立，可以在背景跑，即使 ssh 斷線也會存在。
+    <ul>
+      <li>舉例來說，你可以連上工作站打 <code class="language-plaintext highlighter-rouge">tmux</code> 並執行 <code class="language-plaintext highlighter-rouge">python train.py</code> 開一個 session 在背景跑 Machine Learning，接著就可以斷線做自己的事，等結束以後再透過 <code class="language-plaintext highlighter-rouge">tmux a</code> 進去收割結果。</li>
+    </ul>
   </li>
-  <li>
-    <p><strong>為什麼 class 裡面的第一個參數會是 self？</strong></p>
+  <li>window：在一個 session 中，你可以開很多個 windows，每個 window 相當於一個獨立的視窗。</li>
+  <li>pane：一個 window 可以切割成很多部分，讓你在同一個視窗內同時看很多程式。
+<a href="/assets/image.png" class="popup img-link  shimmer"><img src="/assets/image.png" alt="image" loading="lazy"></a>
+References: <a href="https://blog.gtwang.org/linux/linux-tmux-terminal-multiplexer-tutorial/">Linux tmux 終端機管理工具使用教學</a></li>
+</ul>
 
-    <p>因為當我們在呼叫一個 class 裡面的函數時，呼叫上 Python 會自動將 class 本身當作第一個參數傳進去。</p>
-
-    <p>舉例來說：</p>
-    <div class="language-python highlighter-rouge"><div class="code-header">
-        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>  <span class="c1"># 這裡的 self.value 是 Object 的 Attribute
-</span>       
-    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
-        <span class="nf">print</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">value</span><span class="p">)</span>
-
-<span class="c1"># 初始化一個 Object，型態為前面做好的 class
-</span><span class="n">obj</span> <span class="o">=</span> <span class="nc">MyClass</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="c1"># 呼叫 class 裡面的函數
-</span><span class="n">obj</span><span class="p">.</span><span class="nf">display</span><span class="p">()</span>  <span class="c1"># 輸出: 10
-</span></pre></td></tr></tbody></table></code></div>    </div>
-
-    <p>表面上，我們呼叫的是 <code class="language-plaintext highlighter-rouge">obj.display()</code>，實際上 Python 做的是 <code class="language-plaintext highlighter-rouge">MyClass.display(obj)</code>，
-Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參數必須是 self。</p>
+<h3 id="tmux-終端機可以下的指令"><span class="me-2">tmux 終端機可以下的指令</span><a href="#tmux-終端機可以下的指令" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<ul>
+  <li>在一般終端機的情況下：
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">tmux</code>：開一個 session，下面有一條綠綠的一條就對了（其實也可能是其他顏色）</li>
+      <li><code class="language-plaintext highlighter-rouge">tmux kill-server</code>：關閉所有 session</li>
+      <li><code class="language-plaintext highlighter-rouge">tmux a</code>：切換回背景的 session</li>
+    </ul>
   </li>
-</ol>
+  <li>進入 tmux 的情況：
+    <ul>
+      <li>基本指令：
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">exit</code>：關閉當前 session</li>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> 鬆開再按 <code class="language-plaintext highlighter-rouge">d</code>：切換回正常終端機，tmux 會運行在背景</li>
+        </ul>
+      </li>
+      <li>session 設定
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> 鬆開再打 <code class="language-plaintext highlighter-rouge">s</code>：切換 session</li>
+        </ul>
+      </li>
+      <li>window 設定
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> 鬆開再打 <code class="language-plaintext highlighter-rouge">c</code>：開一個 window</li>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> 鬆開再打 <code class="language-plaintext highlighter-rouge">w</code>：切換 window</li>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> 鬆開再打 <code class="language-plaintext highlighter-rouge">&amp;</code>：關閉當前 window</li>
+        </ul>
+      </li>
+      <li>pane 設定
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> 鬆開再打 <code class="language-plaintext highlighter-rouge">%</code>：左右切一個 pane</li>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> 鬆開再打 <code class="language-plaintext highlighter-rouge">“</code>：上下切一個 pane</li>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+d</code>：關閉當前 pane</li>
+          <li><code class="language-plaintext highlighter-rouge">ctrl+b</code> + 上下左右鍵：切換 pane</li>
+        </ul>
+      </li>
+      <li>想要可以選取並複製貼上：
+        <ul>
+          <li>先按 <code class="language-plaintext highlighter-rouge">ctrl-b</code> + 打出冒號 <code class="language-plaintext highlighter-rouge">:</code>，再打 <code class="language-plaintext highlighter-rouge">setw -g mouse off</code>，就可以自由選字並任意複製貼上，但無法用滑鼠上下滾動。</li>
+        </ul>
+      </li>
+      <li>想要滑鼠上下滾動：
+        <ul>
+          <li>先按 <code class="language-plaintext highlighter-rouge">ctrl-b</code> + 打出冒號 <code class="language-plaintext highlighter-rouge">:</code>，再打 <code class="language-plaintext highlighter-rouge">setw -g mouse on</code>。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
   </div>
 
@@ -719,8 +880,7 @@ Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參�
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/leetcode/">Leetcode</a>,
-          <a href="/categories/array-string/">Array/String</a>
+          <a href="/categories/workstation/">Workstation</a>
       </div>
     
 
@@ -730,14 +890,9 @@ Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參�
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/leetcode/"
+            href="/tags/workstation/"
             class="post-tag no-text-decoration"
-          >Leetcode</a>
-        
-          <a
-            href="/tags/leetcode-75/"
-            class="post-tag no-text-decoration"
-          >LeetCode 75</a>
+          >workstation</a>
         
       </div>
     
@@ -773,14 +928,14 @@ Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參�
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=1071.%20Greatest%20Common%20Divisor%20of%20Strings%20(Easy)%20-%20KUANHSUN%20TU&url=https%3A%2F%2Fsyun413.github.io%2Fposts%2F1071%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Workstation%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%9E%B6%E8%A8%AD%20conda%20%E4%B8%A6%E9%9B%A2%E7%B7%9A%E8%B7%91%20Machine%20Learning%20%E8%A8%AD%E5%AE%9A%E5%A4%A7%E5%85%A8%20-%20KUANHSUN%20TU&url=https%3A%2F%2Fsyun413.github.io%2Fposts%2Fworkstation_conda%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=1071.%20Greatest%20Common%20Divisor%20of%20Strings%20(Easy)%20-%20KUANHSUN%20TU&u=https%3A%2F%2Fsyun413.github.io%2Fposts%2F1071%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Workstation%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%9E%B6%E8%A8%AD%20conda%20%E4%B8%A6%E9%9B%A2%E7%B7%9A%E8%B7%91%20Machine%20Learning%20%E8%A8%AD%E5%AE%9A%E5%A4%A7%E5%85%A8%20-%20KUANHSUN%20TU&u=https%3A%2F%2Fsyun413.github.io%2Fposts%2Fworkstation_conda%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
@@ -1069,43 +1224,7 @@ Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參�
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 
 
 
@@ -1121,7 +1240,7 @@ Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參�
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/605/" class="post-preview card h-100">
+          <a href="/posts/workstation_docker/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1133,72 +1252,16 @@ Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參�
 
 <time
   
-  data-ts="1719851220"
+  data-ts="1719507240"
   data-df="ll"
   
 >
-  Jul  2, 2024
+  Jun 28, 2024
 </time>
 
-              <h4 class="pt-0 my-2">605. Can Place Flowers (Easy)</h4>
+              <h4 class="pt-0 my-2">Workstation 使用技巧：Docker 架設與清除教學</h4>
               <div class="text-muted">
-                <p>605. Can Place Flowers Solution</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/1431/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719764820"
-  data-df="ll"
-  
->
-  Jul  1, 2024
-</time>
-
-              <h4 class="pt-0 my-2">1431. Kids With the Greatest Number of Candies (Easy)</h4>
-              <div class="text-muted">
-                <p>1431. Kids With the Greatest Number of Candies Solution</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/1768/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719674400"
-  data-df="ll"
-  
->
-  Jun 29, 2024
-</time>
-
-              <h4 class="pt-0 my-2">1768. Merge Strings Alternately (Easy)</h4>
-              <div class="text-muted">
-                <p>1768. Merge Strings Alternately Solution</p>
+                <p>Rootless Docker Setup and Clean-up Tutorial</p>
               </div>
             </div>
           </a>
@@ -1219,21 +1282,21 @@ Python 將 obj 當作第一個函數傳進去，這就是為什麼第一個參�
 
   
     <a
-      href="/posts/1768/"
+      href="/posts/workstation_docker/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>1768. Merge Strings Alternately (Easy)</p>
+      <p>Workstation 使用技巧：Docker 架設與清除教學</p>
     </a>
   
 
   
     <a
-      href="/posts/1431/"
+      href="/posts/NASA_Lecture1/"
       class="btn btn-outline-primary"
       aria-label="Newer"
     >
-      <p>1431. Kids With the Greatest Number of Candies (Easy)</p>
+      <p>Lecture 1 - Introduction to Basics</p>
     </a>
   
 </nav>
