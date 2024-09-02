@@ -724,9 +724,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1067 words"
+  title="1107 words"
 >
-  <em>5 min</em> read</span>
+  <em>6 min</em> read</span>
 
         </div>
       </div>
@@ -744,61 +744,109 @@
 </ul>
 
 <p>可以參考以下的 Shell Sctipt：</p>
-<pre><code class="language-bash!">#!/bin/bash
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/bash</span>
 
-# 設置 username，khtu 換成自己的 username
-USERNAME="khtu"
+<span class="c"># 設置 username，khtu 換成自己的 username</span>
+<span class="nv">USERNAME</span><span class="o">=</span><span class="s2">"khtu"</span>
 
-mkdir -p /tmp2/$USERNAME/miniconda
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp2/$USERNAME/miniconda/miniconda.sh
+<span class="nb">mkdir</span> <span class="nt">-p</span> /tmp2/<span class="nv">$USERNAME</span>/miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh <span class="nt">-O</span> /tmp2/<span class="nv">$USERNAME</span>/miniconda/miniconda.sh
 
-bash /tmp2/$USERNAME/miniconda/miniconda.sh -b -u -p /tmp2/$USERNAME/miniconda
+bash /tmp2/<span class="nv">$USERNAME</span>/miniconda/miniconda.sh <span class="nt">-b</span> <span class="nt">-u</span> <span class="nt">-p</span> /tmp2/<span class="nv">$USERNAME</span>/miniconda
 
-rm -rf /tmp2/$USERNAME/miniconda/miniconda.sh
+<span class="nb">rm</span> <span class="nt">-rf</span> /tmp2/<span class="nv">$USERNAME</span>/miniconda/miniconda.sh
 
-/tmp2/$USERNAME/miniconda/bin/conda init bash
+/tmp2/<span class="nv">$USERNAME</span>/miniconda/bin/conda init bash
 
-source ~/.bashrc
+<span class="nb">source</span> ~/.bashrc
 
-echo "export CONDA_PKGS_DIRS=/tmp2/$USERNAME/miniconda/pkgs" &gt;&gt; ~/.bashrc
-echo "export PYTHONUSERBASE=/tmp2/$USERNAME/.local" &gt;&gt; ~/.bashrc
-echo "export PIP_CACHE_DIR=/tmp2/$USERNAME/.cache/pip" &gt;&gt; ~/.bashrc
+<span class="nb">echo</span> <span class="s2">"export CONDA_PKGS_DIRS=/tmp2/</span><span class="nv">$USERNAME</span><span class="s2">/miniconda/pkgs"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">echo</span> <span class="s2">"export PYTHONUSERBASE=/tmp2/</span><span class="nv">$USERNAME</span><span class="s2">/.local"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="nb">echo</span> <span class="s2">"export PIP_CACHE_DIR=/tmp2/</span><span class="nv">$USERNAME</span><span class="s2">/.cache/pip"</span> <span class="o">&gt;&gt;</span> ~/.bashrc
 
-mkdir -p /tmp2/$USERNAME/miniconda/pkgs
-mkdir -p /tmp2/$USERNAME/.local
-mkdir -p /tmp2/$USERNAME/.cache/pip
+<span class="nb">mkdir</span> <span class="nt">-p</span> /tmp2/<span class="nv">$USERNAME</span>/miniconda/pkgs
+<span class="nb">mkdir</span> <span class="nt">-p</span> /tmp2/<span class="nv">$USERNAME</span>/.local
+<span class="nb">mkdir</span> <span class="nt">-p</span> /tmp2/<span class="nv">$USERNAME</span>/.cache/pip
 
-source ~/.bashrc
-</code></pre>
+<span class="nb">source</span> ~/.bashrc
+</pre></td></tr></tbody></table></code></div></div>
 
 <p>想直接使用的話，就開一個檔案叫 <code class="language-plaintext highlighter-rouge">init_conda.sh</code>，將上面的內容複製貼上，並執行以下指令：</p>
-<pre><code class="language-bash!">bash init_conda.sh
-exit
-ssh &lt;username&gt;@meow1.csie.ntu.edu.tw
-source ~/.bashrc
-</code></pre>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>bash init_conda.sh
+<span class="nb">exit
+</span>ssh &lt;username&gt;@meow1.csie.ntu.edu.tw
+<span class="nb">source</span> ~/.bashrc
+</pre></td></tr></tbody></table></code></div></div>
 <p>之後每次使用都要記得先 <code class="language-plaintext highlighter-rouge">source ~/.bashrc</code>。</p>
 
 <p>如果有設定不小心設定爛了，想要清掉所有 conda 產生的 cache，執行以下指令：</p>
-<pre><code class="language-bash!">conda clean --all
-</code></pre>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>conda clean <span class="nt">--all</span>
+</pre></td></tr></tbody></table></code></div></div>
 
 <p>如此一來，你就可以自由的在工作站上跑 conda 了！</p>
 
 <h2 id="uninstall-miniconda"><span class="me-2">Uninstall Miniconda</span><a href="#uninstall-miniconda" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>有時候覺得自己用不到 Miniconda，想要讓工作站上的目錄乾淨一些，可以執行以下指令徹底刪除。</p>
 
-<pre><code class="language-bash!">rm -rf ~/miniconda
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nb">rm</span> <span class="nt">-rf</span> ~/miniconda
 vim ~/.bashrc
-# 將 &gt;&gt;&gt; conda initialize &gt;&gt;&gt; 包起來的內容刪除
-source ~/.bashrc
+<span class="c"># 將 &gt;&gt;&gt; conda initialize &gt;&gt;&gt; 包起來的內容刪除</span>
+<span class="nb">source</span> ~/.bashrc
 
-rm -rf /tmp2/.cache
-rm -rf /tmp2/.local
-rm -rf ~/.cache
-rm -rf /tmp2/khtu/.cache
-rm -rf ~/.conda
-</code></pre>
+<span class="nb">rm</span> <span class="nt">-rf</span> /tmp2/.cache
+<span class="nb">rm</span> <span class="nt">-rf</span> /tmp2/.local
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.cache
+<span class="nb">rm</span> <span class="nt">-rf</span> /tmp2/khtu/.cache
+<span class="nb">rm</span> <span class="nt">-rf</span> ~/.conda
+</pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="離線跑-machine-learning"><span class="me-2">離線跑 Machine Learning</span><a href="#離線跑-machine-learning" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <p>有時，我們想要模型跑隔夜，但晝夜守著電腦或是一直維持電腦 ssh 連線是一件很難做到的事，這時我們可以使用 tmux 來讓我們的模型跑隔夜！</p>
