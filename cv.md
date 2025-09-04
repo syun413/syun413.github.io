@@ -4,7 +4,7 @@ title: CV
 ---
 
 # Kuan-Hsun Tu
-📧 [khtu@csie.ntu.edu.tw](mailto:khtu@csie.ntu.edu.tw) · 🌐 [syun413.github.io](https://syun413.github.io) · 💻 [github.com/syun413](https://github.com/syun413)
+📧 [khtu@csie.ntu.edu.tw](mailto:khtu@csie.ntu.edu.tw) · 💻 [github.com/syun413](https://github.com/syun413)
 
 ---
 
