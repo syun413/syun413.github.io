@@ -11,3 +11,8 @@ My work lies at the intersection of **Robotics**, **Reinforcement Learning**, an
 
 For a detailed overview, see my [CV](assets/files/cv_single_page.pdf).  
 <!-- I also share occasional thoughts and updates here — feel free to [browse my posts](posts). -->
+<p>
+  <a class="btn cv-btn" href="{{ '/assets/files/cv_single_page.pdf' | relative_url }}" target="_blank" rel="noopener">
+    View CV (PDF)
+  </a>
+</p>
