@@ -1,0 +1,21 @@
+title: "Kuan-Hsun Tu"
+tagline: "Embodied AI / HPC / Reinforcement Learning"
+url: "https://syun413.github.io"
+baseurl: ""
+repository: "syun413/syun413.github.io"
+
+remote_theme: "piazzai/cvless"
+
+author:
+  name: "Kuan-Hsun Tu"
+  email: "khtu@csie.ntu.edu.tw"
+
+# avatar: "/assets/img/avatar.jpg"
+
+icons:
+  - label: GitHub
+    icon: iconoir-github
+    url: "https://github.com/syun413"
+
+paginate: 5
+permalink: /blog/:title/
