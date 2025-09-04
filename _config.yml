@@ -6,9 +6,9 @@ url: "https://syun413.github.io"
 remote_theme: "piazzai/cvless"
 
 # site settings
-# taglong: "Embodied AI / RL / HPC"
+taglong: "Undergraduate at NTU CSIE"
 tagshort: "Embodied AI / RL / HPC"
-cv: true
+cv: "assets/files/cv_single_page.pdf"
 
 # author settings
 author:
