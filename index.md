@@ -5,10 +5,9 @@ title: Home
 
 # About
 
-Welcome! I’m **Kuan-Hsun Tu**, an undergraduate student at National Taiwan University (CSIE).
+Hi, I’m **Kuan-Hsun Tu**, an undergraduate at National Taiwan University (CSIE).
 
-My interests span **Robotics**, **Reinforcement Learning**, and **High-Performance Computing (HPC)**, with hands-on experience in both research and large-scale infrastructure.
+My work lies at the intersection of **Robotics**, **Reinforcement Learning**, and **High-Performance Computing (HPC)**, where I enjoy combining research ideas with hands-on experience in large-scale systems.
 
-Check out my [CV](assets/files/cv_single_page.pdf) for a detailed overview.
-
-I also write occasionally on this site — you can [browse my posts here](posts).
+For a detailed overview, see my [CV](assets/files/cv_single_page.pdf).  
+<!-- I also share occasional thoughts and updates here — feel free to [browse my posts](posts). -->
