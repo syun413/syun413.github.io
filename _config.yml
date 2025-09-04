@@ -6,7 +6,7 @@ url: "https://syun413.github.io"
 remote_theme: "piazzai/cvless"
 
 # site settings
-taglong: "Embodied AI / RL / HPC"
+# taglong: "Embodied AI / RL / HPC"
 tagshort: "Embodied AI / RL / HPC"
 cv: true
 
