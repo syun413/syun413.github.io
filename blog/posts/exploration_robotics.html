@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Beyond Instructions: Rethinking Exploration in Embodied AI</title>
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/blog.css" rel="stylesheet">
+</head>
+<body>
+  <main class="post-wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <article class="col-lg-10">
+          <a class="post-back" href="../../index.html">&#8592; Back</a>
+
+          <header class="post-header">
+            <h1>Beyond Instructions: Rethinking Exploration in Embodied AI</h1>
+            <p class="post-meta">Kuan-Hsun Tu · 2025/10/12</p>
+          </header>
+
+          <div class="post-content">
+            <p>Robotics today treats robots as instruction-followers: give them a command, they execute a plan. But intelligence isn't about perfect execution—it's about exploration, adaptation, and building understanding when reality doesn't match our expectations. What follows are some of my thoughts on what it means for robots to truly explore.</p>
+            <h2 id="the-instruction-fallacy">The instruction fallacy</h2>
+            <p>When we tell a robot to &#x201C;pick up the red cup,&#x201D; what are we really asking it to do? At first glance, the task seems straightforward: navigate to the table, identify the cup, execute a grasp. But this instruction-following paradigm misses something fundamental about intelligence&#x2014;the ability to explore, to discover what works when the world doesn&#x2019;t match our expectations.</p>
+            <p>Traditional motion planners treat commands as gospel: &#x201C;move to table &#x2192; pick up red cup.&#x201D; They execute predetermined sequences, assuming the world conforms to their models. But what happens when the cup is slippery? When lighting conditions change? When the grasp fails not once, but repeatedly? An instruction-following agent simply retries the same failed approach, unable to adapt.</p>
+            <p>This brittleness reveals a fundamental gap: these systems lack the ability to truly explore—to discover what works when their models fail. But what does exploration actually mean in robotics?</p>
+            <h2 id="what-does-it-mean-to-explore">What does it mean to explore?</h2>
+            <p>The debate centers on a deceptively simple question: what constitutes exploration in robotics?</p>
+            <p>One perspective argues that exploration requires venturing into continuous action spaces—trying novel motor commands, discovering physical solutions through trial and error. This classical view, common in motion planning and continuous control research, sees exploration as happening in joint angles, gripper forces, and trajectory parameters. Without this low-level experimentation, the argument goes, we're merely combining existing primitives rather than discovering genuinely novel solutions.</p>
+            <p>But there's another view: exploration can happen at the semantic level, through instruction composition and feedback loops. When an agent tries "move closer," observes failure, then adjusts to "modify gripper angle," it's exploring—not in motor space, but in strategy space. This perspective aligns more closely with how humans actually learn: we don't explore by randomly varying joint angles; we explore through semantic hypotheses like "maybe I need a firmer grip" or "perhaps I should approach from the side."</p>
+            <p>This isn't just philosophical hairsplitting. It points to three distinct levels of exploration:</p>
+            <ol type="1">
+              <li><strong>Perceptual exploration</strong>: What am I seeing? Where are the objects?</li>
+              <li><strong>Motor exploration</strong>: Which actions can I execute? How should I move?</li>
+              <li><strong>Strategic exploration</strong>: What should I try next? When should I switch approaches?</li>
+            </ol>
+            <p>The hardest challenges lie not in discovering new actions, but in discovering when to transition between them.</p>
+            
+            <h2 id="the-subtask-transition-problem">The subtask transition problem</h2>
+            <p>Consider a seemingly simple task: opening a door to retrieve an object. The challenge isn&#x2019;t opening the door or grasping the object&#x2014;it&#x2019;s knowing when you&#x2019;ve truly finished opening the door and should proceed to grasping.</p>
+            <p>This is the <strong>subtask transition problem</strong>: determining task boundaries in a continuous, ambiguous world. An agent must learn not just <em>how</em> to execute subtasks, but <em>when</em> to recognize their completion and <em>where</em> to explore next. This requires something deeper than motion planning&#x2014;it requires understanding semantic-geometric alignment.</p>
+            <p>But even this framing assumes something problematic: that tasks can be neatly Markovized into discrete subtasks with clear boundaries.</p>
+            
+            <h2 id="when-markov-assumptions-break">When Markov assumptions break</h2>
+            <p>The real world is not Markovian. Agents don't have access to complete state information. Critical facts hide in history, lie outside the field of view, or emerge from the world's own dynamics. When we strip away the Markov assumption, exploration transforms from "finding a feasible trajectory through state space" into "building an internal world model."</p>
+            <p>Compare two agents attempting to grasp a red cup:</p>
+            <p><strong>Markov Agent</strong>: Observes current image, sees red cup, executes grasp policy. Fails. Retries identical approach. Fails again.</p>
+            <p><strong>Model-Based Agent</strong>: Observes failure, then asks: Why did this fail? Is the cup too slippery? Is the lighting causing mislocalization? Was my approach angle wrong? Did I move too quickly?</p>
+            <p>The second agent isn't just acting—it's learning how the world works. This is epistemic exploration: actively gathering information to reduce uncertainty about the world itself, not just about what actions to take. <strong>This is, fundamentally, the core insight of model-based reinforcement learning</strong>—that intelligent behavior emerges not from memorizing action-value mappings, but from building and refining predictive models of how the world responds to our actions.</p>
+
+            <h2 id="coarse-grained-transitions-as-compressed-causality">Coarse-grained transitions as compressed causality</h2>
+            <p>What should an intelligent agent learn from exploration? Not the fine-grained details of every motion, but <strong>coarse-grained environmental transitions</strong>: meaningful semantic changes like &#x201C;object: free &#x2192; grasped&#x201D; or &#x201C;door: closed &#x2192; open.&#x201D;</p>
+            <p>A Markov policy might learn: &#x201C;move hand toward object &#x2192; adjust wrist angle &#x2192; slowly close fingers &#x2192; verify contact &#x2192; increase grip force &#x2192; lift slightly &#x2192; confirm stable grasp.&#x201D; This is a long, brittle chain of motor primitives.</p>
+            <p>A model-based agent learns: &#x201C;free &#x2192; grasped.&#x201D; This single semantic transition compresses an enormous amount of physical detail&#x2014;friction coefficients, contact dynamics, force distributions&#x2014;into a stable, reusable unit.</p>
+            <p>These coarse transitions represent <strong>causal compression</strong>: abstraction of low-level physics into semantic events. &#x201C;Door: closed &#x2192; open&#x201D; compresses rotational mechanics, hinge friction, applied torques, and material elasticity into a single, compositional concept.</p>
+            <p>The power of coarse transitions is <strong>generalization</strong>. Once an agent understands &#x201C;free &#x2192; grasped&#x201D; as a semantic concept, it can apply the insight across objects, contexts, and even modalities.</p>
+            
+            <h2 id="exploration-beyond-motion">Exploration beyond motion</h2>
+            <p>Cognitive architectures that lean on large language models (LLMs) often treat them as instruction engines: they parse commands, expand them into subtasks, and hand them off to motion planners. But LLMs can play a much deeper role. They can serve as <strong>semantic explorers</strong>, hypothesizing about the environment and suggesting structured interactions.</p>
+            <p>Imagine an LLM-driven agent facing a stuck drawer. Instead of commanding &#x201C;pull harder,&#x201D; the LLM can suggest: &#x201C;Maybe the drawer is locked. Check for a latch. If none, inspect for obstructions.&#x201D; Each suggestion encodes causal assumptions about the world.</p>
+            <p>Exploration thrives on this loop: <em>generate hypotheses, act, observe, update</em>. LLMs supply the hypotheses; the embodied agent executes and observes; the system reconciles expectations with outcomes.</p>
+            
+            <h2 id="epistemic-reward-functions">Epistemic reward functions</h2>
+            <p>Instruction-following agents optimize for task completion. Exploratory agents optimize for <strong>information gain</strong>. This shift demands new reward structures.</p>
+            <p>For a door-opening task, the epistemic objective isn&#x2019;t &#x201C;open the door.&#x201D; It&#x2019;s &#x201C;reduce uncertainty about the door&#x2019;s mechanics.&#x201D; Actions earn reward when they clarify whether the door slides, swings, or lifts; whether the handle turns or pushes; whether the system needs to unlock it first.</p>
+            <p>This reframing leads to agents that adapt faster across environments. They seek signals that disambiguate latent structure, not just actions that succeed once.</p>
+            
+            <h2 id="llms-as-belief-updaters">LLMs as belief updaters</h2>
+            <p>Most integrations treat LLMs as static planners. Instead, we should treat them as <strong>belief updaters</strong> that maintain probability distributions over world hypotheses.</p>
+            <p>When encountering a door, the system should:</p>
+            <ol type="1">
+              <li><strong>Generate hypotheses</strong>: LLM proposes {push-door: 0.4, pull-door: 0.3, slide-door: 0.2, automatic: 0.1}</li>
+              <li><strong>Explore</strong>: Agent tries interactions, observes outcomes</li>
+              <li><strong>Update beliefs</strong>: Reweight hypotheses based on evidence</li>
+              <li><strong>Plan</strong>: Execute high-probability strategy</li>
+            </ol>
+            <p>The reward function changes from &#x201C;Did you open the door?&#x201D; to &#x201C;Did you reduce uncertainty about the door type?&#x201D; This is the shift from outcome-driven to epistemic exploration.</p>
+            
+            <h2 id="training-belief-based-agents">Training belief-based agents</h2>
+            <p>How do we train such a system? Not by teaching robots to open doors, but by teaching them <strong>to figure out what kind of door they&#x2019;re facing</strong>.</p>
+            <p>The training loop involves co-training between two levels:</p>
+            <p><strong>Agent Level (M-step)</strong>: Given hypotheses from LLM, execute interactions, collect evidence, measure belief updates.</p>
+            <p><strong>LLM Level (E-step)</strong>: Given interaction outcomes, refine hypothesis generation and belief update strategies.</p>
+            <p>This is <strong>EM-style alternating optimization</strong>: the agent learns how to gather evidence that discriminates between hypotheses, and the LLM learns how to generate better hypotheses and update beliefs more accurately.</p>
+            <p>The reward signal for the agent isn&#x2019;t task success&#x2014;it&#x2019;s <strong>information gain</strong>: how much did this action reduce uncertainty?</p>
+            
+            <h2 id="the-credit-assignment-problem">The credit assignment problem</h2>
+
+            <p>When a subtask fails, how does the system know whether the semantic plan was wrong or just the motor execution? This is cross-layer credit assignment, and it requires generating expectations—predictive models of what <em>should</em> happen if everything goes right.</p>
+
+            <p>The system needs semantic expectation models: "If grasping succeeds, I should observe: object and hand moving together; increased contact force; decreased object-hand distance." One promising approach is to use video generation models (like Veo3) to visualize expected outcomes before execution: hand approaching, fingers closing, cup lifting.</p>
+
+            <p>After execution, compare reality against expectation. If the hand reached the cup but the grasp failed—controller problem (adjust grip force). If the hand never reached the expected position—planning problem (revise strategy). Contact detected but object slipped → motor failure. No contact achieved → semantic failure.</p>
+
+            <p>This diagnostic process allows the system to distinguish between "try harder" (motor adjustment) and "try differently" (strategy revision).</p>
+
+            <h2 id="expectation-variance-and-exploration-styles">Expectation variance and exploration among humans</h2>
+
+            <p>What's fascinating is that humans exhibit dramatic variation in how they handle expectation mismatches. Some people exhibit remarkable persistence, staying focused on a problem and iterating until they find a solution. Others adapt quickly, pivoting to new strategies when early attempts don't work. This variance in expectation tolerance shapes our individual cognitive styles.</p>
+
+            <p>An agent with updateable beliefs, predictive models, and tunable expectation variance can exhibit the same flexibility. It can decide when to persist versus when to pivot. When to trust its model versus when to gather more information. This parameter—expectation variance—becomes a knob for exploration strategy: high variance agents explore aggressively, low variance agents exploit existing strategies.</p>
+
+            <p>This isn't just a technical detail. It's how intelligent agents understand their relationship to uncertainty itself.</p>
+
+            <h2 id="conclusion-exploration-as-understanding">Conclusion: exploration as understanding</h2>
+            <p>Rethinking exploration in robotics means moving beyond the instruction-following paradigm. It means building agents that:</p>
+            <ul>
+              <li>Form hypotheses about how the world works</li>
+              <li>Actively test those hypotheses through interaction</li>
+              <li>Update their beliefs based on evidence</li>
+              <li>Learn coarse-grained causal structures rather than fine-grained motor sequences</li>
+              <li>Use semantic knowledge as hypothesis generators, not answer sheets</li>
+              <li>Distinguish between failures of understanding and failures of execution</li>
+            </ul>
+            <p>This is exploration not as random search through action space, but as systematic inquiry into the nature of reality. It's the difference between an agent that executes commands and one that learns to understand.</p>
+            <p>I believe we're at a rare convergence point. Foundation models give us semantic reasoning, modern hardware enables real-time world modeling, and model-based RL provides the learning framework. For the first time, we have the tools to build systems that learn the way humans do: through curiosity, hypothesizing, and adaptation.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <p class="footer-text">&#169; <span id="current-year"></span> Kuan-Hsun Tu &#183; All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Designing a Minimal Research Log Template</title>
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/blog.css" rel="stylesheet">
+</head>
+<body>
+  <main class="post-wrapper">
+    <div class="container">
+      <div class="row justify-content-center">
+        <article class="col-lg-10">
+          <a class="post-back" href="../../index.html">← Back</a>
+
+          <header class="post-header">
+            <h1>Designing a Minimal Research Log Template</h1>
+            <div class="post-meta-block">
+              <div><strong>Author:</strong> Kuan-Hsun Tu</div>
+              <div><strong>Published:</strong> 04/27/2024</div>
+              <div><strong>Word count:</strong> 820</div>
+              <div><strong>Reading time:</strong> 4 min</div>
+            </div>
+          </header>
+
+          <div class="post-content">
+            <p>
+              A minimal writing system should feel friendly to jump into, even on busy days.
+              This template keeps the <strong>structure lightweight</strong> while highlighting the essentials:
+              <em>intent</em>, <em>signal</em>, and clear follow-up actions. Most importantly, it matches the typography
+              and colors used across the rest of the site so the transition into long-form notes feels natural.
+            </p>
+
+            <div class="note-block">
+              <p>
+                <strong>Note:</strong> The metadata block above is intentionally dense. It is optimized for quick scanning,
+                and you can update it manually after drafting. Feel free to extend it with tags or experiment identifiers.
+              </p>
+            </div>
+
+            <p>
+              The template leans on a handful of principles:
+              focus on a single takeaway, capture context before diving into results,
+              and link out to raw artifacts (dashboards, notebooks, or simulations) so the narrative remains concise.
+              When I mention tools—like <a href="https://wandb.ai" target="_blank" rel="noopener">Weights &amp; Biases</a>—I link directly to the source
+              for future readers who may not know the reference.
+            </p>
+
+            <h2>Session Goals</h2>
+            <p>
+              Start each entry with a quick outline of what success looks like. For example,
+              validating a new reward schedule or reworking a perception stack. Having this section at the top
+              keeps the rest of the document honest; if it drifts, I know to split the entry into a new post.
+            </p>
+
+            <ol>
+              <li>Summarize the current system state and open issues.</li>
+              <li>Document the planned experiments and expected outcomes.</li>
+              <li>Log the surprises—positive or negative—and flag follow-ups.</li>
+            </ol>
+
+            <h2>Implementation Notes</h2>
+            <p>
+              Inline code snippets such as <code>docker compose up --build</code> sit comfortably in paragraphs.
+              Longer command sequences or configuration fragments live inside code blocks for clarity:
+            </p>
+
+            <pre><code class="language-bash"># Spin up training workers with the latest policy image
+python tools/launch_workers.py \
+  --cluster prod-euw1 \
+  --workers 12 \
+  --policy builds/policy-2024-04-27.pt</code></pre>
+
+            <p>
+              The same idea applies to configuration diffs, pseudo-code, or script highlights. Keep things focused on the change,
+              and pair each snippet with a short description so readers understand why it matters.
+            </p>
+
+            <h2>Key Observations</h2>
+            <p>
+              Lists work well for capturing structured takeaways. Bullets can nest when needed,
+              but keeping them brief encourages quicker iteration on future passes:
+            </p>
+
+            <ul>
+              <li>Latency dropped by 18% after pinning inference to isolated CPU cores.</li>
+              <li>
+                Policy generalization improved once we diversified the reset curriculum:
+                <ul>
+                  <li>Added three random object placements per episode.</li>
+                  <li>Injected depth sensor noise drawn from lab captures.</li>
+                </ul>
+              </li>
+              <li>We still need better logging around failure recovery triggers.</li>
+            </ul>
+
+            <p>
+              Visual cues make scanning easier. For media, the template ensures images scale gracefully across devices:
+            </p>
+
+            <img src="https://via.placeholder.com/1200x600?text=Experiment+Dashboard" alt="Mock dashboard preview illustrating experiment metrics">
+
+            <p>
+              Wrap up with decisions, risks, and next steps. Readers should leave knowing how to reproduce the results,
+              what to watch out for, and which questions remain unanswered.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="blog-footer">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <p class="footer-text">© <span id="current-year"></span> Kuan-Hsun Tu · Thanks for reading.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
