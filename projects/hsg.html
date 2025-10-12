@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HSG: Unsupervised Hierarchical Semantic Segmentation with Multiview Cosegmentation and Clustering Transformers</title>
+
+<!-- Meta tags for search engines to crawl -->
+<meta name="robots" content="index,follow">
+<meta name="description" content="Unsupervised semantic segmentation aims to discover groupings within and across images that capture object- and view-invariance of a category without external supervision.  Grouping naturally has levels of granularity, creating ambiguity in unsupervised segmentation.  Existing methods avoid this ambiguity and treat it as a factor outside modeling, whereas we embrace it and desire hierarchical grouping consistency for unsupervised segmentation.
+
+We approach unsupervised segmentation as a pixel-wise feature learning problem.  Our idea is that a good representation must be able to reveal not just a particular level of grouping, but any level of grouping in a consistent and predictable manner across different levels of granularity.  We enforce spatial consistency of grouping and bootstrap feature learning with co-segmentation among multiple views of the same image, and enforce semantic consistency across the grouping hierarchy with clustering transformers.
+
+We deliver the first data-driven unsupervised hierarchical semantic segmentation method called Hierarchical Segment Grouping (HSG). Capturing visual similarity and statistical co-occurrences, HSG also outperforms existing unsupervised segmentation methods by a large margin on five major object- and scene-centric benchmarks. ">
+<meta name="keywords" content="semantic segmentation; hierarchical segmentation; unsupervised learning">
+<link rel="author" href="https://twke18.github.io/">
+
+<!-- Fonts and stuff -->
+<link href="./hsg/css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="./hsg/project.css" media="screen">
+<link rel="stylesheet" type="text/css" media="screen" href="./hsg/iconize.css">
+<script async="" src="./hsg/prettify.js"></script>
+
+
+</head>
+
+<body>
+  <div id="content">
+    <div id="content-inner">
+
+      <div class="section head">
+  <h1>Unsupervised Hierarchical Semantic Segmentation with Multiview Cosegmentation and Clustering Transformers</h1>
+
+  <div class="authors">
+    <a href="https://twke18.github.io/">Tsung-Wei Ke</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://jyhjinghwang.github.io/">Jyh-Jing Hwang</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://yunhuiguo.github.io//">Yunhui Guo</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://people.eecs.berkeley.edu/~xdwang///">Xudong Wang</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://www1.icsi.berkeley.edu/~stellayu/">Stella X. Yu</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+
+  <div class="affiliations">
+    <a href="https://www.berkeley.edu/">UC Berkeley</a> / 
+    <a href="https://www.icsi.berkeley.edu/icsi/">ICSI</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+
+  <div class="venue">The Conference on Computer Vision and Pattern Recognition (<a href="https://cvpr2022.thecvf.com/" target="_blank">CVPR</a>) 2022</div>
+      </div>
+
+
+      <center><img src="./hsg/main.png" border="0" width="75%"></center>
+      <br>
+
+<div class="section abstract">
+  <h2>Abstract</h2>
+  <br>
+  <p>
+  Unsupervised semantic segmentation aims to discover groupings within and across images that capture object- and view-invariance of a category without external supervision.  Grouping naturally has levels of granularity, creating ambiguity in unsupervised segmentation.  Existing methods avoid this ambiguity and treat it as a factor outside modeling, whereas we embrace it and desire hierarchical grouping consistency for unsupervised segmentation.
+  <br>
+  <br>
+  We approach unsupervised segmentation as a pixel-wise feature learning problem.  Our idea is that a good representation must be able to reveal not just a particular level of grouping, but any level of grouping in a consistent and predictable manner across different levels of granularity.  We enforce spatial consistency of grouping and bootstrap feature learning with co-segmentation among multiple views of the same image, and enforce semantic consistency across the grouping hierarchy with clustering transformers.
+  <br>
+  <br>
+  We deliver the first data-driven unsupervised hierarchical semantic segmentation method called <b>Hierarchical Segment Grouping (HSG)</b>. Capturing visual similarity and statistical co-occurrences, HSG also outperforms existing unsupervised segmentation methods by a large margin on five major object- and scene-centric benchmarks.
+  </p>
+      </div>
+
+<div class="section materials">
+  <h2>Materials</h2>
+  <center>
+    <ul>
+      <li class="grid">
+        <div class="griditem">
+          <a href="https://arxiv.org/abs/2204.11432" target="_blank" class="imageLink"><img src="./hsg/hsg_paper.png" border="0"></a><br>
+          <a href="https://arxiv.org/abs/2204.11432" target="_blank">Paper</a>
+        </div>
+      </li>
+      <li class="grid">
+        <div class="griditem">
+          <a href="./hsg/hsg_poster.pdf" target="_blank" class="imageLink"><img src="./hsg/hsg_poster.png"></a><br>
+          <a href="./hsg/hsg_poster.pdf" target="_blank">Poster</a>
+        </div>
+      </li>
+      <li class="grid">
+        <div class="griditem">
+          <a href="./hsg/hsg_slides.pdf" target="_blank" class="imageLink"><img src="./hsg/hsg_slides.png"></a><br>
+          <a href="./hsg/hsg_slides.pdf" target="_blank">Slides at CVPR 2022</a>
+        </div>
+      </li>
+    </ul>
+  </center>
+</div>
+
+<br>
+
+<div class="section code">
+  <h2>Code and Models</h2>
+  <center>
+    <ul>
+      <li class="grid">
+        <div class="griditem">
+          <a href="https://github.com/twke18/HSG" target="_blank" class="imageLink"><img src="./common/code.png"></a><br>
+          <a href="https://github.com/twke18/HSG" target="_blank">Code</a>
+        </div>
+      </li>
+      <li class="grid">
+        <div class="griditem">
+            <a href="https://drive.google.com/drive/folders/1LMSlQnM5yc3wA_MU4uMCX2L6ZqLMSJ8B?usp=sharing" target="_blank" class="imageLink"><img src="../img/cal.png"></a><br>
+            <a href="https://drive.google.com/drive/folders/1LMSlQnM5yc3wA_MU4uMCX2L6ZqLMSJ8B?usp=sharing" target="_blank">Models & Masks</a>
+          </div>
+      </li>
+    </ul>
+  </center>
+</div>
+
+<br>
+
+<div class="section citation">
+  <h2>Citation</h2>
+  <div class="section bibtex">
+    <pre>@inproceedings{ke2022hsg,
+title={Unsupervised Hierarchical Semantic Segmentation with Multiview Cosegmentation and Clustering Transformers},
+author={Ke, Tsung-Wei and Hwang, Jyh-Jing and Guo, Yunhui and Wang, Xudong and Yu, Stella X.},
+booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+pages={},
+year={2022}
+}</pre>
+  </div>
+</div>
+
+    
+<br>
+
+<div class="section materials">
+  <h2>Method Highlight</h2>
+    <center><img src="./hsg/feature_mapping_and_grouping.png" border="0" width="70%"></center>
+    <br>
+    <p>
+    <b>Overview</b>. We aim to learn a CNN that maps each pixel to a point in the feature space <i>V</i> such that successively derived cluster features <i>X</i><sub>0</sub>, <i>X</i><sub>1</sub>, <i>X</i><sub>2</sub> produce good and consistent hierarchical pixel groupings <i>G</i><sub>e</sub>, <i>G</i><sub>1</sub>, <i>G</i><sub>2</sub>. Their consistency is enforced through clustering transformers <i>C</i><sub>l</sub><sup>l+1</sup> , which dictates how feature clusters at level <i>l</i> map to feature clusters at level <i>l+1</i>. Note that <i>G</i><sub>0</sub> results from clusters of <i>V</i> , and <i>G</i><sub>e</sub> from OWT-UCM edges. <i>P</i><sub>l</sub> is the probabilistic version of <i>G</i><sub>l</sub>, and <i>G</i><sub>l</sub> the winner-take-all binary version of <i>P</i><sub>l</sub>; <i>P</i><sub>0</sub> ∼ <i>G</i><sub>0</sub>. For <i>l</i> ≥ 0, <i>P</i><sub>l+1</sub> results from propagating <i>P</i><sub>l</sub> by <i>C</i><sub>l</sub><sup>l+1</sup> . Groupings <i>G</i><sub>e</sub>, <i>G</i><sub>1</sub>, <i>G</i><sub>2</sub> in turn impose desired feature similarity and drive feature learning. We co-segment multiple views of the same image to capture spatial consistency, visual similarity, statistical co-occurences, and semantic hierarchies.
+    </p>
+    <center><img src="./hsg/framework.png" border="0" width="90%"></center>
+    <br>
+    <p>
+    Our model consists of two essential components: <b> 1) multiview cosegmentation </b> and <b> 2) hierarchical grouping </b>.  We first produces pixel-wise feature <i>V</i>, from which we cluster to get base cluster feature <i>X</i><sub>0</sub> and grouping <i>G</i><sub>0</sub>.  Each <i>G</i><sub>0</sub> region is split w.r.t coherent regions derived by OWT-UCM procedure, which is marked by the white lines.  We create three groupings--<i>G</i><sub>e</sub>, <i>G</i><sub>1</sub> and <i>G</i><sub>2</sub> in multiview cosegmentation fashion.  We obtain <i>G</i><sub>e</sub> by inferring the coherent region segmentation according to how each view is spatially transformed from the original image.  Starting with input <i>X</i><sub>0</sub> of an image and its augmented views, we conduct feature clustering to merge <i>G</i><sub>0</sub> into <i>G</i><sub>1</sub>, and then, <i>G</i><sub>1</sub> into <i>G</i><sub>2</sub>.  Based on <i>G</i><sub>e</sub>, <i>G</i><sub>1</sub> and <i>G</i><sub>2</sub>, we formulate a pixel-to-segment contrastive loss for each grouping.  Our HSG learns to generate discriminative representations and consistent hierarchical segmentations for the input images.
+    </p>
+    <center><img src="./hsg/coseg.png" border="0" width="65%"></center>
+    <br>
+    <p>
+    <b>Two kinds of groupings:</b> We co-segment multiple views (Column 1) of the same by OWT-UCM edges (<i>G</i><sub>e</sub>, Column 2) or by feature cluster at fine and coarse levels (<i>G</i><sub>1</sub>, <i>G</i><sub>2</sub>, Columns 3-4). White lines mark the segments derived from pixel feature clustering and OWT-UCM edges. The color of feature points (pixels) mark grouping in the feature space (segmentation in the image) consistently across rows in the same column, per spatial transformations between views. <i>G</i><sub>2</sub>’s coarse segmentations simply merge <i>G</i><sub>1</sub>’s fine segmentations, their consistency enforced by our clustering transformers.  We formulate a pixel-to-segment contrastive loss (L<sub>f</sub>) to optimize pixel-wise features w.r.t certain segmentations. Minimizing L<sub>f</sub>(<i>G</i><sub>e</sub>), L<sub>f</sub>(<i>G</i><sub>1</sub>), L<sub>f</sub>(<i>G</i><sub>2</sub>) ensures respectively that our learned feature is grounded in low-level coherence, yet with view invariance, and capable of capturing semantics at multiple levels and producing hierarchical segmentations.
+    </p>
+
+</div>
+
+<br>
+
+<div class="section materials">
+  <h2>Semantic Segmentation over Object- and Scene-centric Datasets.</h2>
+    <center><img src="./hsg/semantic_results.png" border="0" width="80%"></center>
+    <p>
+    Our framework generalizes better on different types of datasets. From top to bottom every three rows are visual results from VOC, Cityscapes and KITTI-STEP dataset. The results are predicted via segment retrievals. Our pixel-wise features encode more precise semantic information than baselines.
+    </p>
+</div>
+
+<br>
+
+<div class="section materials">
+  <h2>Hierarchical Image Segmentation.</h2>
+    <center><img src="./hsg/hierarchy_results.png" border="0" width="80%"></center>
+    <p>
+    Our hierarchical clustering transformers capture semantics at different levels of granularity.  <b>Top row:</b> our hierarchical segmentation; <b>Bottom row:</b> SE-OWT-UCM. Each image is segmented into 12, 6, 3 regions. Our method reveals low-to-high level of semantics more consistently.
+    </p>
+</div>
+
+<br>
+	    
+<div class="section acknowledgement">
+  <h2>Acknowledgements</h2>
+  <br>
+  <p>
+  This work was supported, in part, by Berkeley Deep Drive, Berkeley AI Research Commons with Facebook, NSF 2131111, and a Bosch research gift.
+  </p>
+</div>
+	
+
+</body></html>

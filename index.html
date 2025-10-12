@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kuan-Hsun Tu</title>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+          body {
+            font-family: Roboto, 'sans-serif';
+            font-size: 16px;
+            background-color: #FFFFFF;
+            color: #4F6071;
+            padding-bottom: 80px;
+          }
+          h1 {
+              font-weight: 300;
+              font-size: 2rem;
+          }
+          #header {
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: flex-end;
+            padding-top:60px;
+            padding-bottom:60px;
+          }
+          #footer {
+            background-color: #FFFFFF;
+            padding:60px;
+          }
+          #portrait {
+            border: 3px solid white;
+          }
+          #header-text {
+            margin-top: 60px;
+            margin-left: 220px;
+          }
+          #header-text-name {
+            font-size: 40px;
+          }
+          #header-text-title {
+              font-size: 17px;
+          }
+          #header-text-affiliation {
+              font-size: 17px;
+              margin-top: 10px;
+          }
+          #header-text-email {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 500;
+          }
+          .header-text-desc {
+            font-size: 20px;
+          }
+          .vspace-top {
+            margin-top: 30px;
+          }
+          .vspace-top-news {
+              margin-top: 15px;
+          }
+          .paper-image {
+            width: 150px;
+          }
+          .news-date {
+              font-weight: bold;
+          }
+          .paper-title {
+            font-weight: bold;
+          }
+          .paper-authors {
+            font-style: italic;
+          }
+          .experience-item + .experience-item {
+            margin-top: 25px;
+          }
+          .highlight-item + .highlight-item {
+            margin-top: 10px;
+          }
+    </style>
+</head>
+
+<body>
+    <div id='header'>
+        <div class='container'>
+            <div class='row'>
+                <div class="col-sm-3 offset-sm-1">
+                    <img src='img/profile.png' class='img-fluid' id='portrait' alt='Portrait of Kuan-Hsun Tu'>
+                </div>
+
+                <div class="col">
+                  <div id='header-text-name'>
+                    Kuan-Hsun Tu
+                  </div>
+                  
+                  <div id='header-text-affiliation'>
+                    National Taiwan University · <a href="https://www.csie.ntu.edu.tw">Department of Computer Science and Information Engineering</a>
+                  </div>
+
+                  <div id='head-text-title'>
+                    <br>
+                    I am an undergraduate researcher advised by <a href="https://twke18.github.io">Prof. Tsung-Wei Ke</a> in the <a href="https://embodiedai-ntu.github.io">Embodied AI Lab</a>.
+                    I build infrastructure for scalable embodied AI—system backbones, digital twin pipelines, and reinforcement learning strategies that bring robots closer to real-world deployment.
+                    Beyond the lab, I collaborate with <a href="http://elsalab.ai/about">Prof. Chun-Yi Lee</a> on high-performance computing and help keep NTU CSIE's teaching infrastructure running smoothly as the department's System Administrator and Lead TA.
+                  </div>
+
+                  <div id='header-text-email'>
+                        Contact me: khtu@csie.ntu.edu.tw
+                  </div>
+                  <div>
+                    <a href="https://github.com/syun413">[GitHub]</a>
+                    <!-- <a href="https://embodiedai-ntu.github.io">[Lab]</a> -->
+                    <a href="pdfs/khtu_CV.pdf">[Download CV]</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class='container'>
+        <div class='row vspace-top'>
+            <div class='col offset-sm-1'>
+                <div class='vspace-top'>
+                    <h1>Highlights</h1>
+                    <div class='highlight-item'>
+                        <span class='news-date'>2025</span> Finalist team for the <a href="https://sc25.supercomputing.org/students/sc-student-cluster-competition/">SC25 Student Cluster Competition</a>; I co-designed our energy-constrained HPC cluster from bare metal, tuned MLPerf/HPL stacks, and engineered automation so the system survives live benchmarking in St. Louis.
+                    </div>
+                    <div class='highlight-item'>
+                        <span class='news-date'>2025</span> Won 1st place at the NTU CSIE Undergraduate Project Exhibition with <em>Split Decisions</em>, a vision-language-guided action planner that I built to couple structured robot demonstrations with efficient RL exploration.
+                    </div>
+                    <div class='highlight-item'>
+                        <span class='news-date'>2024</span> Took 1st place at the NTU–IBM Qiskit Hackathon by delivering a quantum autoencoder that compresses 3,901 to 47 gates while preserving 98.1% fidelity and cutting runtime in half on IBM hardware.
+                    </div>
+                </div>
+
+                <div class='vspace-top'>
+                    <h1>Publications</h1>
+
+                    <div class='row vspace-top'>
+                        <div class="col-sm-3">
+                           <img src='img/pubs/dexman.png' class='img-fluid' alt='DexMan project teaser'>
+                        </div>
+
+                        <div class="col">
+                            <div class='paper-title'>
+                                DexMan: Learning Bimanual Dexterous Manipulation from Human and Generated Videos
+                            </div>
+                            <div class='paper-desc'>
+                                ArXiv 2025
+                            </div>
+                            <div class='paper-authors'>
+                                Jhen Hsieh, <strong>Kuan-Hsun Tu</strong>, Kuo-Han Hung, Tsung-Wei Ke
+                            </div>
+                            <div>
+                                I led the data infrastructure and digital twin integration that let us combine human demonstrations with procedurally generated videos for robust policy learning.
+                            </div>
+                            <div>
+                                <a href="https://arxiv.org/abs/2510.08475">[ArXiv]</a>
+                                <a href="https://github.com/EmbodiedAI-NTU/DexMan">[Code]</a>
+                                <a href="https://embodiedai-ntu.github.io/dexman/index.html">[Project]</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
