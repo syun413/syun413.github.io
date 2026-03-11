@@ -16,7 +16,7 @@
             font-family: Roboto, 'sans-serif';
             font-size: 16px;
             background-color: #FFFFFF;
-            color: #4F6071;
+            color: #222222;
             padding-bottom: 80px;
           }
           h1 {
@@ -36,7 +36,7 @@
           }
           .footer-note {
             font-size: 14px;
-            color: #7A8896;
+            color: #888888;
             text-align: center;
           }
           #portrait {
@@ -66,6 +66,7 @@
           }
           #head-text-title p {
             margin: 14px 0;
+            line-height: 1.5;
           }
           #head-text-title p:first-child {
             margin-top: 0;
@@ -89,16 +90,30 @@
               font-weight: bold;
           }
           .paper-title {
+            font-size: 1.1rem;
             font-weight: bold;
           }
           .paper-authors {
-            font-style: italic;
+            font-style: normal;
+          }
+          .paper-desc {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #222222;
+          }
+          .pub-entry > div {
+            margin-bottom: 4px;
+            line-height: 1.7;
           }
           .experience-item + .experience-item {
             margin-top: 25px;
           }
+          .highlight-item {
+            line-height: 1.75;
+            margin-top: 20px;
+          }
           .highlight-item + .highlight-item {
-            margin-top: 10px;
+            margin-top: 18px;
           }
     </style>
 </head>
@@ -122,7 +137,7 @@
 
                   <div id='head-text-title'>
                     <p>
-                      I’m an undergraduate student advised by <a href="https://twke18.github.io">Prof. Tsung-Wei Ke</a> in the Embodied AI lab. My research focuses on embodied AI that learns by exploration — building agents that form hypotheses about the world, test them through interaction, and update their beliefs to bridge the gap between semantic knowledge and physical reality.
+                      I’m an undergraduate student advised by <a href="https://twke18.github.io">Prof. Tsung-Wei Ke</a> in the Embodied AI Lab. My research centers on how agents learn to interact with the world through reinforcement learning. I currently focus on online RL fine-tuning, zero-shot policy generalization, and flow matching for action generation in robot manipulation.
                     </p>
                     <p>
                       Beyond research, I keep NTU CSIE’s infrastructure running as the department’s System Administrator and Lead TA with <a href="https://www.csie.ntu.edu.tw/~hsinmu/site/">Prof. Hsin-Mu (Michael) Tsai</a>, and partner with <a href="http://elsalab.ai/about">Prof. Chun-Yi Lee</a> on high-performance computing initiatives such as <a href="https://sc25.supercomputing.org/students/student-cluster-competition/"> Student Cluster Competition at SC25</a>.
@@ -145,44 +160,82 @@
 
     <div class='container'>
         <div class='row vspace-top'>
-            <div class='col offset-sm-1'>
-                <div class='vspace-top'>
-                    <h1>Blogs</h1>
-                    <ul style='list-style:none;padding:0;margin:15px 0 0;'>
-                        <li style='margin-bottom:16px;'>
-                            <a href='blog/posts/exploration_robotics.html' style='font-weight:500;color:#0d6efd;text-decoration:none;'>Beyond Instructions: Rethinking Exploration in Embodied AI</a>
-                            <span style='margin-left:8px;color:#7A8896;font-size:14px;'>(10/12/2025)</span>
-                        </li>
-                    </ul>
-                </div>
-
+            <div class='col'>
                 <div class='vspace-top'>
                     <h1>Highlights</h1>
                     <div class='highlight-item'>
-                        <span class='news-date'>2025</span>
-                        <a href="https://sc25.supercomputing.org/students/student-cluster-competition/">
-                            SC25 Student Cluster Competition
-                        </a>: Awarded the title of <strong>Overall Winner (1st place)</strong>. As the Cluster System Administrator, I contributed to top results across HPL, Reproduce Challenge, and Mystery App through system-level optimization, HPL-MxP tuning, and application-specific performance improvements.
+                        <div style='font-size:16px;'>
+                            <a href="https://sc25.supercomputing.org/students/student-cluster-competition/">SC25 Student Cluster Competition</a>
+                        </div>
+                        <div style='font-size:16px; font-weight:600; margin-top:2px;'>Overall Winner (1st place) &middot; <span style='font-weight:400; color:#666;'>2025</span></div>
+                        <div style='font-size:15px; color:#444; margin-top:4px;'>As the Cluster System Administrator, I contributed to top results across HPL, Reproduce Challenge, and Mystery App through system-level optimization, HPL-MxP tuning, and application-specific performance improvements.</div>
                     </div>
                     <div class='highlight-item'>
-                        <span class='news-date'>2025</span>
-                        <a href="https://www.hpcadvisorycouncil.com/pdf/8th-apac-hpc-ai-competition.pdf">
-                            APAC HPC-AI Competition
-                        </a>: Achieved <strong>2nd Place Overall</strong> and the <strong>Best AI Performance Award</strong>. Our top-performing AI track solution maximized inference throughput for the DeepSeek-R1 671B reasoning LLM deployed on GPU infrastructure using the SGLang framework.
+                        <div style='font-size:16px;'>
+                            <a href="https://www.hpcadvisorycouncil.com/pdf/8th-apac-hpc-ai-competition.pdf">APAC HPC-AI Competition</a>
+                        </div>
+                        <div style='font-size:16px; font-weight:600; margin-top:2px;'>2nd Place &middot; Best AI Performance Award &middot; <span style='font-weight:400; color:#666;'>2025</span></div>
+                        <div style='font-size:15px; color:#444; margin-top:4px;'>Our top-performing AI track solution maximized inference throughput for the DeepSeek-R1 671B reasoning LLM deployed on GPU infrastructure using the SGLang framework.</div>
                     </div>
-                </div>
-
                 </div>
 
                 <div class='vspace-top'>
-                    <h1>Publications</h1>
+                    <h1>Publications <small style='font-size:0.95rem; font-weight:400; color:#666;'>(<sup>*</sup> Equal contribution. <sup>†</sup> Corresponding author.)</small></h1>
+
+                    <div class='row vspace-top'>
+                        <div class="col-sm-3">
+                           <img src='img/pubs/cotfm.png' class='img-fluid' alt='COT-FM project teaser'>
+                        </div>
+
+                        <div class="col pub-entry">
+                            <div class='paper-title'>
+                                COT-FM: Cluster-wise Optimal Transport Flow Matching
+                            </div>
+                            <div class='paper-desc'>
+                                IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), <strong>2026</strong>
+                            </div>
+                            <div class='paper-authors'>
+                                Chiensheng Chiang<sup>*</sup>, <strong>Kuan-Hsun Tu</strong><sup>*†</sup>, Jia-Wei Liao<sup>*</sup>, Cheng-Fu Chou, Tsung-Wei Ke
+                            </div>
+                            <div>
+                                <span style="color:#222222;">[ArXiv]</span>
+                                <a href="https://github.com/EmbodiedAI-NTU/COT-FM">[Code]</a>
+                                <a href="https://embodiedai-ntu.github.io/cotfm/index.html">[Project Website]</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row vspace-top'>
+                        <div class="col-sm-3">
+                           <img src='img/pubs/robotarena.png' class='img-fluid' alt='RobotArena project teaser'>
+                        </div>
+
+                        <div class="col pub-entry">
+                            <div class='paper-title'>
+                                RobotArena &infin;: Scalable Robot Benchmarking via Real-to-Sim Translation
+                            </div>
+                            <div class='paper-desc'>
+                                International Conference on Learning Representations (<strong>ICLR</strong>), <strong>2026</strong>
+                            </div>
+                            <div class='paper-authors'>
+                                Yash Jangir, Yidi Zhang<sup>*</sup>, Kashu Yamazaki<sup>*</sup>, Chenyu Zhang<sup>*</sup>, <strong>Kuan-Hsun Tu</strong>, Tsung-Wei Ke, Lei Ke, Yonatan Bisk, Katerina Fragkiadaki
+                            </div>
+                            <div>
+                                Converts real robot demonstrations into simulated digital twins scored by VLM guidance and scalable human preference feedback while perturbing scenes to stress-test policy robustness.
+                            </div>
+                            <div>
+                                <a href="https://arxiv.org/abs/2510.23571">[ArXiv]</a>
+                                <a href="https://robotarenainf.github.io/">[Project Website]</a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class='row vspace-top'>
                         <div class="col-sm-3">
                            <img src='img/pubs/dexman.png' class='img-fluid' alt='DexMan project teaser'>
                         </div>
 
-                        <div class="col">
+                        <div class="col pub-entry">
                             <div class='paper-title'>
                                 DexMan: Learning Bimanual Dexterous Manipulation from Human and Generated Videos
                             </div>
@@ -193,39 +246,14 @@
                                 Jhen Hsieh, <strong>Kuan-Hsun Tu</strong>, Kuo-Han Hung, Tsung-Wei Ke
                             </div>
                             <div>
-                                Led image-to-mesh pipeline, Any6D experiments, 
-                                pose-estimation ablations, environment rollout, 
+                                Led image-to-mesh pipeline, Any6D experiments,
+                                pose-estimation ablations, environment rollout,
                                 website launch, and manuscript prep.
                             </div>
                             <div>
                                 <a href="https://arxiv.org/abs/2510.08475">[ArXiv]</a>
                                 <a href="https://github.com/EmbodiedAI-NTU/DexMan">[Code]</a>
-                                <a href="https://embodiedai-ntu.github.io/dexman/index.html">[Project]</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class='row vspace-top'>
-                        <div class="col-sm-3">
-                           <img src='img/pubs/robotarena.png' class='img-fluid' alt='RobotArena project teaser'>
-                        </div>
-
-                        <div class="col">
-                            <div class='paper-title'>
-                                RobotArena &infin;: Scalable Robot Benchmarking via Real-to-Sim Translation
-                            </div>
-                            <div class='paper-desc'>
-                                ArXiv 2025
-                            </div>
-                            <div class='paper-authors'>
-                                Yash Jangir, Yidi Zhang, Kashu Yamazaki, Chenyu Zhang, <strong>Kuan-Hsun Tu</strong>, Tsung-Wei Ke, Lei Ke, Yonatan Bisk, Katerina Fragkiadaki
-                            </div>
-                            <div>
-                                Converts real robot demonstrations into simulated digital twins scored by VLM guidance and scalable human preference feedback while perturbing scenes to stress-test policy robustness.
-                            </div>
-                            <div>
-                                <a href="https://arxiv.org/abs/2510.23571">[ArXiv]</a>
-                                <a href="https://robotarenainf.github.io/">[Project]</a>
+                                <a href="https://embodiedai-ntu.github.io/dexman/index.html">[Project Website]</a>
                             </div>
                         </div>
                     </div>
