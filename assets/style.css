@@ -1,0 +1,102 @@
+:root {
+  color-scheme: light;
+  --ink: #252831;
+  --secondary: #545a67;
+  --muted: #707581;
+  --link: #5365a8;
+  --link-hover: #3c4780;
+  --paper: #fff;
+  --rule: #e7e9ef;
+  --date-width: 128px;
+  --column-gap: 24px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 28px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: #e2e6f4; }
+a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
+strong { font-weight: 700; }
+
+.page { width: min(100%, 800px); margin: 0 auto; padding: 46px 20px 30px; }
+.profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 58px;
+}
+h1 { margin: 0 0 18px; font-size: 36px; line-height: 1.2; font-weight: 700; text-align: center; }
+.biography p { margin: 0 0 12px; }
+.biography p:last-child { margin-bottom: 0; }
+.biography a { white-space: nowrap; }
+.profile-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 6px; margin-top: 18px; font-size: 15px; }
+.profile-links a { white-space: nowrap; }
+.profile-links > span { color: #a0a4af; }
+.portrait { display: block; width: 180px; height: 240px; object-fit: cover; border-radius: 50%; }
+
+section + section { margin-top: 48px; }
+h2 { margin: 0 0 24px; padding-bottom: 13px; border-bottom: 1px solid var(--rule); font-size: 26px; font-weight: 400; line-height: 1.3; letter-spacing: -0.5px; }
+h3 { margin: 0; }
+
+.record-list { display: grid; row-gap: 26px; margin: 0; padding: 0; }
+.record { display: grid; grid-template-columns: var(--date-width) minmax(0, 1fr); align-items: baseline; column-gap: var(--column-gap); }
+.record-date { margin: 0; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; line-height: 1.6; white-space: nowrap; }
+.record-date a { color: inherit; }
+.record-date a:hover { color: var(--link); }
+.record-body h3 { font-size: 15px; font-weight: 700; line-height: 1.5; }
+.record-body p { margin: 5px 0 0; color: var(--secondary); font-size: 14px; line-height: 1.6; }
+.record-body .record-note { margin-top: 4px; color: var(--muted); font-size: 13px; }
+.detail-separator { margin: 0 3px; color: #9499a5; }
+.honors-list { list-style: none; }
+
+.publications { row-gap: 25px; }
+.publication h3 { font-size: 18px; font-weight: 400; line-height: 1.4; }
+.authors strong { color: var(--ink); }
+.publication .venue { color: var(--ink); font-size: 14px; font-weight: 700; }
+sup { position: relative; top: -0.4em; font-size: 0.7em; line-height: 0; vertical-align: baseline; }
+.resource-links { display: flex; flex-wrap: wrap; list-style: none; margin: 4px 0 0; padding: 0; font-size: 13px; line-height: 1.6; }
+.resource-links li + li::before { content: "·"; color: #9499a5; margin: 0 7px; }
+.resource-links a { white-space: nowrap; }
+.contribution-note { display: flex; flex-wrap: wrap; gap: 0 14px; margin: 24px 0 0; color: var(--muted); font-size: 12px; }
+.contribution-note span { white-space: nowrap; }
+
+footer { margin-top: 60px; text-align: right; color: var(--muted); font-size: 13px; }
+.skip-link { position: absolute; left: 16px; top: -100px; padding: 8px 12px; background: var(--paper); z-index: 1; }
+.skip-link:focus { top: 12px; }
+
+@media (max-width: 600px) {
+  .page { padding: 32px 24px 24px; }
+  .profile { grid-template-columns: 1fr; gap: 24px; margin-bottom: 42px; }
+  .portrait { grid-row: 1; justify-self: center; width: 135px; height: 180px; }
+  h1 { font-size: 32px; margin-bottom: 20px; }
+  .profile-links { justify-content: center; }
+  h2 { font-size: 24px; margin-bottom: 23px; }
+  .record { grid-template-columns: 1fr; row-gap: 6px; }
+  .record-date { font-size: 12px; }
+  .record-list { row-gap: 26px; }
+  .publications { row-gap: 25px; }
+  .contribution-note { margin-left: 0; }
+  section + section { margin-top: 40px; }
+  footer { margin-top: 40px; }
+}
+
+@media print {
+  .page { width: 100%; padding: 0; }
+  .profile { margin-bottom: 28px; }
+  a { color: inherit; }
+  .record, .publication { break-inside: avoid; }
+  .skip-link { display: none; }
+  h2 { break-after: avoid; }
+}

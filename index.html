@@ -1,270 +1,175 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Kuan-Hsun Tu</title>
-
-    <!-- Meta tags -->
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Styles -->
-    <style>
-          body {
-            font-family: Roboto, 'sans-serif';
-            font-size: 16px;
-            background-color: #FFFFFF;
-            color: #222222;
-            padding-bottom: 80px;
-          }
-          h1 {
-              font-weight: 300;
-              font-size: 2rem;
-          }
-          #header {
-            background-color: #f4f4f4;
-            display: flex;
-            align-items: flex-end;
-            padding-top:60px;
-            padding-bottom:60px;
-          }
-          #footer {
-            background-color: #FFFFFF;
-            padding:60px;
-          }
-          .footer-note {
-            font-size: 14px;
-            color: #888888;
-            text-align: center;
-          }
-          #portrait {
-            border: 3px solid white;
-          }
-          #header-text {
-            margin-top: 60px;
-            margin-left: 220px;
-          }
-          #header-text-name {
-            font-size: 40px;
-          }
-          #header-text-title {
-              font-size: 17px;
-          }
-          #header-text-affiliation {
-              font-size: 17px;
-              margin-top: 10px;
-          }
-          #header-text-email {
-            margin-top: 18px;
-            font-size: 18px;
-            font-weight: 500;
-          }
-          #head-text-title {
-            margin-top: 16px;
-          }
-          #head-text-title p {
-            margin: 14px 0;
-            line-height: 1.5;
-          }
-          #head-text-title p:first-child {
-            margin-top: 0;
-          }
-          #head-text-title p:last-child {
-            margin-bottom: 0;
-          }
-          .header-text-desc {
-            font-size: 20px;
-          }
-          .vspace-top {
-            margin-top: 30px;
-          }
-          .vspace-top-news {
-              margin-top: 15px;
-          }
-          .paper-image {
-            width: 150px;
-          }
-          .news-date {
-              font-weight: bold;
-          }
-          .paper-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-          }
-          .paper-authors {
-            font-style: normal;
-          }
-          .paper-desc {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #222222;
-          }
-          .pub-entry > div {
-            margin-bottom: 4px;
-            line-height: 1.7;
-          }
-          .experience-item + .experience-item {
-            margin-top: 25px;
-          }
-          .highlight-item {
-            line-height: 1.75;
-            margin-top: 20px;
-          }
-          .highlight-item + .highlight-item {
-            margin-top: 18px;
-          }
-    </style>
-</head>
-
-<body>
-    <div id='header'>
-        <div class='container'>
-            <div class='row'>
-                <div class="col-sm-3 offset-sm-1">
-                    <img src='img/profile.png' class='img-fluid' id='portrait' alt='Portrait of Kuan-Hsun Tu'>
-                </div>
-
-                <div class="col">
-                  <div id='header-text-name'>
-                    Kuan-Hsun Tu
-                  </div>
-                  
-                  <div id='header-text-affiliation'>
-                    National Taiwan University · <a href="https://www.csie.ntu.edu.tw">Department of Computer Science and Information Engineering</a>
-                  </div>
-
-                  <div id='head-text-title'>
-                    <p>
-                      I’m an undergraduate student advised by <a href="https://twke18.github.io">Prof. Tsung-Wei Ke</a> in the Embodied AI Lab. My research centers on how agents learn to interact with the world through reinforcement learning. I currently focus on online RL fine-tuning, zero-shot policy generalization, and flow matching for action generation in robot manipulation.
-                    </p>
-                    <p>
-                      Beyond research, I keep NTU CSIE’s infrastructure running as the department’s System Administrator and Lead TA with <a href="https://www.csie.ntu.edu.tw/~hsinmu/site/">Prof. Hsin-Mu (Michael) Tsai</a>, and partner with <a href="http://elsalab.ai/about">Prof. Chun-Yi Lee</a> on high-performance computing initiatives such as <a href="https://sc25.supercomputing.org/students/student-cluster-competition/"> Student Cluster Competition at SC25</a>.
-                    </p>
-                  </div>
-
-                  <div id='header-text-email'>
-                        Contact me: khtu@csie.ntu.edu.tw
-                  </div>
-                  <div>
-                    <a href="https://github.com/syun413">[GitHub]</a>
-                    <!-- <a href="https://embodiedai-ntu.github.io">[Lab]</a> -->
-                    <a href="pdfs/khtu_CV.pdf">[Download CV]</a>
-                  </div>
-                </div>
-            </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kuan-Hsun Tu is an undergraduate researcher at National Taiwan University working on flow matching models, behavioral foundation models, and reinforcement learning for robotics.">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kuan-Hsun Tu">
+    <meta property="og:description" content="Research on flow matching models, behavioral foundation models, and reinforcement learning for robotics at National Taiwan University.">
+    <title>Kuan-Hsun Tu</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#publications">Skip to publications</a>
+    <main class="page">
+      <header class="profile">
+        <div class="profile-text">
+          <h1>Kuan-Hsun Tu</h1>
+          <div class="biography">
+            <p>I am an undergraduate student at National Taiwan University, advised by <a href="https://twke18.github.io/">Tsung-Wei Ke</a>. My research studies why powerful learning systems fall short of their theoretical capabilities, and how we can address these failures with simple and general mechanisms. I currently work on flow matching models, behavioral foundation models, and reinforcement learning for robotics.</p>
+          </div>
+          <nav class="profile-links" aria-label="Contact and profiles">
+            <a href="mailto:khtu@csie.ntu.edu.tw">Email</a>
+            <span aria-hidden="true">·</span>
+            <a href="assets/documents/khtu_CV.pdf">CV</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://scholar.google.com/citations?user=sUeQbAkAAAAJ&amp;hl=zh-TW">Google Scholar</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://github.com/syun413">GitHub</a>
+          </nav>
         </div>
-    </div>
+        <img class="portrait" src="assets/images/profile.png" width="180" height="240" alt="Kuan-Hsun Tu playing an acoustic guitar" fetchpriority="high">
+      </header>
 
-
-    <div class='container'>
-        <div class='row vspace-top'>
-            <div class='col'>
-                <div class='vspace-top'>
-                    <h1>Highlights</h1>
-                    <div class='highlight-item'>
-                        <div style='font-size:16px;'>
-                            <a href="https://sc25.supercomputing.org/students/student-cluster-competition/">SC25 Student Cluster Competition</a>
-                        </div>
-                        <div style='font-size:16px; font-weight:600; margin-top:2px;'>Overall Winner (1st place) &middot; <span style='font-weight:400; color:#666;'>2025</span></div>
-                        <div style='font-size:15px; color:#444; margin-top:4px;'>As the Cluster System Administrator, I contributed to top results across HPL, Reproduce Challenge, and Mystery App through system-level optimization, HPL-MxP tuning, and application-specific performance improvements.</div>
-                    </div>
-                    <div class='highlight-item'>
-                        <div style='font-size:16px;'>
-                            <a href="https://www.hpcadvisorycouncil.com/pdf/8th-apac-hpc-ai-competition.pdf">APAC HPC-AI Competition</a>
-                        </div>
-                        <div style='font-size:16px; font-weight:600; margin-top:2px;'>2nd Place &middot; Best AI Performance Award &middot; <span style='font-weight:400; color:#666;'>2025</span></div>
-                        <div style='font-size:15px; color:#444; margin-top:4px;'>Our top-performing AI track solution maximized inference throughput for the DeepSeek-R1 671B reasoning LLM deployed on GPU infrastructure using the SGLang framework.</div>
-                    </div>
-                </div>
-
-                <div class='vspace-top'>
-                    <h1>Publications <small style='font-size:0.95rem; font-weight:400; color:#666;'>(<sup>*</sup> Equal contribution. <sup>†</sup> Corresponding author.)</small></h1>
-
-                    <div class='row vspace-top'>
-                        <div class="col-sm-3">
-                           <img src='img/pubs/cotfm.png' class='img-fluid' alt='COT-FM project teaser'>
-                        </div>
-
-                        <div class="col pub-entry">
-                            <div class='paper-title'>
-                                COT-FM: Cluster-wise Optimal Transport Flow Matching
-                            </div>
-                            <div class='paper-desc'>
-                                IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>), <strong>2026</strong>
-                            </div>
-                            <div class='paper-authors'>
-                                Chiensheng Chiang<sup>*</sup>, <strong>Kuan-Hsun Tu</strong><sup>*†</sup>, Jia-Wei Liao<sup>*</sup>, Cheng-Fu Chou, Tsung-Wei Ke
-                            </div>
-                            <div>
-                                <a href="https://arxiv.org/abs/2603.13395v1">[ArXiv]</a>
-                                <a href="https://github.com/EmbodiedAI-NTU/COT-FM">[Code]</a>
-                                <a href="https://embodiedai-ntu.github.io/cotfm/index.html">[Project Website]</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class='row vspace-top'>
-                        <div class="col-sm-3">
-                           <img src='img/pubs/robotarena.png' class='img-fluid' alt='RobotArena project teaser'>
-                        </div>
-
-                        <div class="col pub-entry">
-                            <div class='paper-title'>
-                                RobotArena &infin;: Scalable Robot Benchmarking via Real-to-Sim Translation
-                            </div>
-                            <div class='paper-desc'>
-                                International Conference on Learning Representations (<strong>ICLR</strong>), <strong>2026</strong>
-                            </div>
-                            <div class='paper-authors'>
-                                Yash Jangir, Yidi Zhang<sup>*</sup>, Kashu Yamazaki<sup>*</sup>, Chenyu Zhang<sup>*</sup>, <strong>Kuan-Hsun Tu</strong>, Tsung-Wei Ke, Lei Ke, Yonatan Bisk, Katerina Fragkiadaki
-                            </div>
-                            <div>
-                                <a href="https://arxiv.org/abs/2510.23571">[ArXiv]</a>
-                                <a href="https://robotarenainf.github.io/">[Project Website]</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class='row vspace-top'>
-                        <div class="col-sm-3">
-                           <img src='img/pubs/dexman.png' class='img-fluid' alt='DexMan project teaser'>
-                        </div>
-
-                        <div class="col pub-entry">
-                            <div class='paper-title'>
-                                DexMan: Learning Bimanual Dexterous Manipulation from Human and Generated Videos
-                            </div>
-                            <div class='paper-desc'>
-                                ArXiv 2025
-                            </div>
-                            <div class='paper-authors'>
-                                Jhen Hsieh, <strong>Kuan-Hsun Tu</strong>, Kuo-Han Hung, Tsung-Wei Ke
-                            </div>
-                            <div>
-                                <a href="https://arxiv.org/abs/2510.08475">[ArXiv]</a>
-                                <a href="https://github.com/EmbodiedAI-NTU/DexMan">[Code]</a>
-                                <a href="https://embodiedai-ntu.github.io/dexman/index.html">[Project Website]</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+      <section id="publications" aria-labelledby="publications-heading">
+        <h2 id="publications-heading">Publications</h2>
+        <div class="publications record-list">
+          <article class="publication">
+            <div class="record-body publication-details">
+              <h3>Task Inference Beyond Least Squares in Behavioral Foundation Model</h3>
+              <p class="authors"><strong>Kuan-Hsun Tu</strong><sup>*</sup>, Chien-Sheng Chiang<sup>*</sup>, Hsin-Wei Chen, Ping-Chun Hsieh, Tsung-Wei Ke</p>
+              <p class="venue">In submission, 2026.</p>
             </div>
-        </div>
-    </div>
+          </article>
 
-    <div id='footer'>
-        <div class='container'>
-            <div class='row'>
-                <div class='col'>
-                    <div class='footer-note'>
-                        © 2025 Kuan-Hsun Tu. All rights reserved. Template adapted from <a href="https://github.com/twke18/twke18.github.io">twke18.github.io</a>.
-                    </div>
-                </div>
+          <article class="publication">
+            <div class="record-body publication-details">
+              <h3>CNP-Flow: Unified Temporal Flow Matching via Conditional Noise Prediction</h3>
+              <p class="authors"><strong>Kuan-Hsun Tu</strong><sup>*</sup>, Hsuan-Chi Liu<sup>†*</sup>, Jia-Wei Liao<sup>*</sup>, Chien-Sheng Chiang, Cheng-Fu Chou, Tsung-Wei Ke</p>
+              <p class="venue">In submission, 2026.</p>
             </div>
+          </article>
+
+          <article class="publication">
+            <div class="record-body publication-details">
+              <h3>COT-FM: Cluster-wise Optimal Transport Flow Matching</h3>
+              <p class="authors">Chien-Sheng Chiang<sup>*</sup>, <strong>Kuan-Hsun Tu</strong><sup>†*</sup>, Jia-Wei Liao<sup>*</sup>, Cheng-Fu Chou, Tsung-Wei Ke</p>
+              <p class="venue">CVPR 2026</p>
+              <ul class="resource-links" aria-label="COT-FM resources">
+                <li><a href="https://arxiv.org/abs/2603.13395">Paper</a></li>
+                <li><a href="https://github.com/EmbodiedAI-NTU/COT-FM">Code</a></li>
+                <li><a href="https://embodiedai-ntu.github.io/cotfm/index.html">Project Website</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="publication">
+            <div class="record-body publication-details">
+              <h3>RobotArena ∞: Scalable Robot Benchmarking via Real-to-Sim Translation</h3>
+              <p class="authors">Yash Jangir, Yidi Zhang<sup>*</sup>, Kashu Yamazaki<sup>*</sup>, Chenyu Zhang<sup>*</sup>, <strong>Kuan-Hsun Tu</strong>, Tsung-Wei Ke, Lei Ke, Yonatan Bisk, Katerina Fragkiadaki</p>
+              <p class="venue">ICLR 2026</p>
+              <ul class="resource-links" aria-label="RobotArena resources">
+                <li><a href="https://arxiv.org/abs/2510.23571">Paper</a></li>
+                <li><a href="https://github.com/offjangir/RobotArena">Code</a></li>
+                <li><a href="https://robotarenainf.github.io/">Project Website</a></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="publication">
+            <div class="record-body publication-details">
+              <h3>DexMan: Learning Bimanual Dexterous Manipulation from Human and Generated Videos</h3>
+              <p class="authors">Jhen Hsieh, <strong>Kuan-Hsun Tu</strong>, Kuo-Han Hung, Tsung-Wei Ke</p>
+              <p class="venue">arXiv preprint, 2025.</p>
+              <ul class="resource-links" aria-label="DexMan resources">
+                <li><a href="https://arxiv.org/abs/2510.08475">Paper</a></li>
+                <li><a href="https://github.com/EmbodiedAI-NTU/DexMan">Code</a></li>
+                <li><a href="https://embodiedai-ntu.github.io/dexman/index.html">Project Website</a></li>
+              </ul>
+            </div>
+          </article>
         </div>
-    </div>
-</body>
+        <p class="contribution-note"><span><sup>*</sup> Equal contribution.</span> <span><sup>†</sup> Corresponding author.</span></p>
+      </section>
+
+      <section id="honors" aria-labelledby="honors-heading">
+        <h2 id="honors-heading">Honors and Awards</h2>
+        <ul class="honors-list record-list">
+          <li class="record">
+            <time class="record-date" datetime="2026-09"><a href="https://www.ntu.edu.tw/spotlight/2026/2519_20260910.html" title="Opening ceremony: September 6, 2026">Sep 2026</a></time>
+            <div class="record-body award-description">
+              <h3>National Taiwan University Opening Ceremony</h3>
+              <p>Student Representative Speaker</p>
+            </div>
+          </li>
+          <li class="record">
+            <time class="record-date" datetime="2026-08"><a href="https://event1.nchc.org.tw/2026/hipac/" title="Awards ceremony: August 6, 2026">Aug 2026</a></time>
+            <div class="record-body award-description">
+              <h3>HiPAC: 5th NCHC Application Performance Optimization Competition</h3>
+              <p>1st Place (Coach)</p>
+            </div>
+          </li>
+          <li class="record">
+            <time class="record-date" datetime="2025-11"><a href="https://sc25.supercomputing.org/students/student-cluster-competition/" title="Student Cluster Competition: November 17–19, 2025">Nov 2025</a></time>
+            <div class="record-body award-description">
+              <h3>SC25 Student Cluster Competition</h3>
+              <p>1st Place <span class="detail-separator" aria-hidden="true">·</span> Overall Winner</p>
+            </div>
+          </li>
+          <li class="record">
+            <time class="record-date" datetime="2025-11"><a href="https://www.hpcwire.com/off-the-wire/hpc-ai-advisory-council-announces-results-of-the-8th-apac-hpc-ai-competition/" title="Results announced: November 17, 2025">Nov 2025</a></time>
+            <div class="record-body award-description">
+              <h3>8th APAC HPC-AI Competition</h3>
+              <p>2nd Place &amp; Best AI Performance Award</p>
+            </div>
+          </li>
+          <li class="record">
+            <time class="record-date" datetime="2024-08"><a href="https://quantum.ntu.edu.tw/?p=9039" title="Qiskit Hackathon Taiwan: August 19–21, 2024">Aug 2024</a></time>
+            <div class="record-body award-description">
+              <h3>Qiskit Hackathon Taiwan</h3>
+              <p>1st Place <span class="detail-separator" aria-hidden="true">·</span> Grand Jury Prize</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Work and Teaching Experience</h2>
+        <div class="experience-list record-list">
+          <article class="experience record">
+            <p class="record-date">Jul–Dec 2026</p>
+            <div class="record-body experience-description">
+              <h3>NTU COOL</h3>
+              <p>Application Developer <span class="detail-separator" aria-hidden="true">·</span> Developed <a href="https://coolaicompanion.dlc.ntu.edu.tw/">NTU COOL AI Companion</a></p>
+            </div>
+          </article>
+          <article class="experience record">
+            <p class="record-date">Spring 2026</p>
+            <div class="record-body experience-description">
+              <h3>Advanced Network Administration and System Administration</h3>
+              <p>TA</p>
+            </div>
+          </article>
+          <article class="experience record">
+            <p class="record-date">Spring &amp; Fall 2025</p>
+            <div class="record-body experience-description">
+              <h3>Network Administration and System Administration</h3>
+              <p>Lead TA</p>
+            </div>
+          </article>
+          <article class="experience record">
+            <p class="record-date">Fall 2025</p>
+            <div class="record-body experience-description">
+              <h3>Parallel Programming</h3>
+              <p>TA</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <footer>© 2026 Kuan-Hsun Tu</footer>
+    </main>
+  </body>
 </html>
