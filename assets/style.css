@@ -62,6 +62,10 @@ h3 { margin: 0; }
 .honors-list { list-style: none; }
 
 .publications { row-gap: 25px; }
+.publication-with-teaser { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; align-items: center; }
+.publication-teaser { display: block; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.publication-teaser:hover { border-color: var(--link); }
+.publication-teaser img { display: block; width: 100%; height: auto; }
 .publication h3 { font-size: 18px; font-weight: 400; line-height: 1.4; }
 .authors strong { color: var(--ink); }
 .publication .venue { color: var(--ink); font-size: 14px; font-weight: 700; }
@@ -87,6 +91,8 @@ footer { margin-top: 60px; text-align: right; color: var(--muted); font-size: 13
   .record-date { font-size: 12px; }
   .record-list { row-gap: 26px; }
   .publications { row-gap: 25px; }
+  .publication-with-teaser { grid-template-columns: 1fr; gap: 16px; }
+  .publication-teaser { width: min(100%, 360px); }
   .contribution-note { margin-left: 0; }
   section + section { margin-top: 40px; }
   footer { margin-top: 40px; }
