@@ -6,7 +6,7 @@ Personal academic website. Open `index.html` directly or serve this directory wi
 - `assets/style.css`: responsive layout and colors. Change `--link` and `--link-hover` to adjust the indigo-blue accent.
 - `assets/images/profile.png`: profile photograph.
 - `assets/images/publications/`: original publication teasers copied from the archived site.
-- `assets/documents/khtu_CV.pdf`: existing CV.
+- `assets/documents/khtu_CV.pdf`: updated two-page CV using the original CV's CM Super and URW Palladio fonts.
 - `legacy/`: the complete previous website, preserved with its original relative paths. Open `legacy/index.html` to view it.
 
 The layout follows [Seohong Park’s website](https://seohong.me/). This implementation is a static, semantic HTML page with its own CSS. Typography uses Arial, with Helvetica and generic sans-serif fallbacks; no external font requests are needed.
