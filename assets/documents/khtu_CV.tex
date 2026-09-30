@@ -1,0 +1,281 @@
+% !TeX program = pdflatex
+% ---------------------------------------------------------------
+%  Kuan-Hsun Tu -- Curriculum Vitae
+%  Compile with pdfLaTeX or LuaLaTeX (both reproduce the same layout).
+%  Requires the cm-super fonts (included in TeX Live / MiKTeX / Overleaf).
+% ---------------------------------------------------------------
+\documentclass[10pt]{article}
+
+\usepackage{fix-cm}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=42bp,right=42bp,top=30.2bp,bottom=41.89bp,
+            headheight=0pt,headsep=0pt,footskip=17.89bp]{geometry}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdfusetitle]{hyperref}
+
+% ---------- Colors ----------------------------------------------
+\definecolor{cvtext}{HTML}{161616}
+\definecolor{cvgray}{HTML}{595959}
+\definecolor{cvlink}{HTML}{475C9C}
+
+% ---------- Fonts -----------------------------------------------
+% Every size is scaled from the 10.95pt design size of the EC /
+% cm-super Computer Modern fonts; headings use the 12pt bold small caps.
+% No ligatures, no kerning, no hyphenation, fixed-width interword spaces
+% (pdfTeX: \pdfnoligatures also drops the kerning table).
+\makeatletter
+\newcommand{\cv@fontsetup}[1]{%
+  \hyphenchar\font=-1
+  \fontdimen2\font=#1\dimexpr\f@size pt\relax
+  \fontdimen3\font=0pt \fontdimen4\font=0pt \fontdimen7\font=0pt
+  \ifdefined\pdfnoligatures\pdfnoligatures\font\fi}
+\DeclareFontFamily{T1}{cvcm}{}
+\DeclareFontShape{T1}{cvcm}{m}{n}  {<-> ecrm1095}{\cv@fontsetup{0.33156}}
+\DeclareFontShape{T1}{cvcm}{m}{it} {<-> ecti1095}{\cv@fontsetup{0.35504}}
+\DeclareFontShape{T1}{cvcm}{bx}{n} {<-> ecbx1095}{\cv@fontsetup{0.38086}}
+\DeclareFontShape{T1}{cvcm}{bx}{sc}{<-> ecxc1200}{\cv@fontsetup{0.41194}}
+\DeclareFontShape{T1}{cvcm}{b}{n}  {<-> ssub * cvcm/bx/n}{}
+\DeclareFontFamily{TS1}{cvcm}{}
+\DeclareFontShape{TS1}{cvcm}{m}{n} {<-> tcrm1095}{\cv@fontsetup{0.33156}}
+\DeclareFontShape{TS1}{cvcm}{m}{it}{<-> tcti1095}{\cv@fontsetup{0.33156}}
+\DeclareFontShape{TS1}{cvcm}{bx}{n}{<-> tcbx1095}{\cv@fontsetup{0.33156}}
+\renewcommand{\rmdefault}{cvcm}
+\renewcommand{\bfdefault}{bx}
+\makeatother
+
+% LuaLaTeX: switch off kerning and ligatures entirely.
+\ifdefined\directlua
+  \directlua{
+    luatexbase.add_to_callback("ligaturing", function(head) end, "cv.noligs")
+    luatexbase.add_to_callback("kerning",    function(head) end, "cv.nokern")
+  }
+\fi
+
+\newcommand{\fs}[1]{\fontsize{#1bp}{\the\baselineskip}\selectfont}
+\newcommand{\namefont}{\fontfamily{ppl}\fontseries{b}\fontshape{n}\fs{24}%
+  \ifdefined\pdfnoligatures\pdfnoligatures\font\fi}
+
+% ---------- Page style ------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\fs{8.3}\color{cvgray}Kuan-Hsun Tu}
+\fancyfoot[C]{\fs{8.3}\color{cvgray}Updated September 2026}
+\fancyfoot[R]{\fs{8.3}\color{cvgray}\thepage}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{20bp}
+\lineskiplimit=-\maxdimen
+\frenchspacing
+\raggedbottom
+\hyphenpenalty=10000 \exhyphenpenalty=10000
+
+% ---------- Layout primitives -----------------------------------
+% Every line is placed by its baseline distance to the previous line.
+\makeatletter
+\newif\ifcv@afterrule
+\newif\ifcv@aftertitle
+\newif\ifcv@afterlinks
+% \cv@place{gap after rule}{gap otherwise}{line leading}{content}
+\newcommand{\cv@place}[4]{%
+  \par
+  \ifcv@afterrule \vspace{\dimexpr#1-#3\relax}%
+  \else \vspace{\dimexpr#2-#3\relax}\fi
+  \cv@afterrulefalse\cv@aftertitlefalse\cv@afterlinksfalse
+  {\leftskip=\cv@indent \rightskip=0pt plus 1fil \parfillskip=0pt plus 1fil
+   \baselineskip=#3\relax #4\par}}
+\newlength{\cv@indent}
+\newcommand{\cvdate}[1]{\hfill{\fs{9.4}\color{cvgray}#1}}
+\newcommand{\cvlink}[2]{\href{#1}{\textcolor{cvlink}{#2}}}
+
+% Superscripts: 80% size, raised by half the current size.
+\newcommand{\cvsup}[1]{\raisebox{.5\dimexpr\f@size pt\relax}{%
+  \fontsize{\fpeval{0.8*\f@size}}{0}\selectfont #1}}
+\newcommand{\eq}{\cvsup{*}}
+\newcommand{\corr}{\cvsup{\textdagger}}
+\newcommand{\correq}{\cvsup{\textdagger*}}
+\newcommand{\me}{\textbf{Kuan-Hsun Tu}}
+
+% ---------- Header ----------------------------------------------
+\newcommand{\cvname}[1]{%
+  {\centering\namefont\rule{0pt}{27.8bp}#1\par}}
+\newcommand{\cvsepbar}{~~|~~}
+\newcommand{\cvcontact}[1]{%
+  {\centering\baselineskip=17.8bp\fs{9.8}#1\par}}
+
+% ---------- Sections --------------------------------------------
+% \cvsection[baseline gap to previous line]{Title}
+\NewDocumentCommand{\cvsection}{O{26.3bp} m}{%
+  \par\vspace{\dimexpr#1-20bp\relax}%
+  {\baselineskip=20bp\fontseries{bx}\fontshape{sc}\fs{12.2}%
+   \MakeUppercase{#2}\rule[-3bp]{0pt}{0pt}\par}%
+  \vspace{2.375bp}\hrule height .45bp\relax\prevdepth=0pt
+  \cv@afterruletrue}
+
+% \cventry[gap]{bold title}{date}
+\NewDocumentCommand{\cventry}{O{20.6bp} m m}{%
+  \setlength{\cv@indent}{14bp}%
+  \cv@place{16.275bp}{#1}{12bp}{{\fs{10.5}\bfseries #2}\cvdate{#3}}%
+  \cv@aftertitletrue}
+% \cvline{text}{date}: line below an entry title (9.6bp)
+\NewDocumentCommand{\cvline}{m m}{%
+  \setlength{\cv@indent}{14bp}%
+  \ifcv@aftertitle\def\cv@gap{12.9bp}\else\def\cv@gap{12.7bp}\fi
+  \cv@place{0pt}{\cv@gap}{12bp}{{\fs{9.6}#1}\cvdate{#2}}}
+% \cvbullet{text}: bullet under a work entry
+\NewDocumentCommand{\cvbullet}{m}{%
+  \setlength{\cv@indent}{24bp}%
+  \cv@place{0pt}{14.7bp}{11.7bp}{\fs{9.6}%
+    \hspace*{-10bp}\makebox[10bp][l]{\fs{7.2}\textbullet}#1}}
+% \cvnote{text}: small gray note right under a section rule
+\NewDocumentCommand{\cvnote}{m}{%
+  \setlength{\cv@indent}{14bp}%
+  \cv@place{14.475bp}{14.475bp}{12bp}{\fs{8.7}\color{cvgray}#1}}
+
+% ---------- Publications ----------------------------------------
+\newcounter{cvpub}
+% \cvpub{authors}{title}{venue}{links or empty}
+\NewDocumentCommand{\cvpub}{m m m m}{%
+  \stepcounter{cvpub}%
+  \setlength{\cv@indent}{30bp}%
+  \ifcv@afterlinks\def\cv@gap{19.5bp}\else\def\cv@gap{19.8bp}\fi
+  \ifnum\value{cvpub}=1 \def\cv@gap{16.6bp}\fi
+  \cv@place{16.6bp}{\cv@gap}{11.8bp}{\fs{9.7}%
+    \hspace*{-16bp}\makebox[16bp][l]{\arabic{cvpub}.}#1}%
+  \cv@place{0pt}{13.1bp}{12bp}{\fs{10.5}\itshape #2}%
+  \cv@place{0pt}{12.4bp}{12bp}{\fs{9.6}#3}%
+  \if\relax\detokenize{#4}\relax\else
+    \cv@place{0pt}{11.9bp}{12bp}{\fs{8.8}#4}\cv@afterlinkstrue
+  \fi}
+\newcommand{\pubsep}{~~\textperiodcentered~~}
+\newcommand{\publinks}[3]{\cvlink{#1}{Paper}\pubsep\cvlink{#2}{Code}\pubsep
+  \cvlink{#3}{Project Website}}
+
+% ---------- Honors ----------------------------------------------
+% \cvgroup[gap]{group title}
+\NewDocumentCommand{\cvgroup}{O{21.9bp} m}{%
+  \setlength{\cv@indent}{14bp}%
+  \cv@place{16.575bp}{#1}{12bp}{\fs{10.8}\bfseries #2}%
+  \cv@aftertitletrue}
+% \cvhonor{event}{date}{detail}
+\NewDocumentCommand{\cvhonor}{m m m}{%
+  \ifcv@aftertitle\def\cv@gap{16.6bp}\else\def\cv@gap{18.3bp}\fi
+  \setlength{\cv@indent}{28bp}%
+  \cv@place{0pt}{\cv@gap}{12bp}{\fs{10.2}#1\cvdate{#2}}%
+  \setlength{\cv@indent}{38bp}%
+  \cv@place{0pt}{12.9bp}{12bp}{\fs{9.6}%
+    \hspace*{-10bp}\makebox[10bp][l]{\fs{7.2}\textbullet}#3}}
+\makeatother
+
+\hypersetup{
+  pdftitle={Kuan-Hsun Tu | Curriculum Vitae},
+  pdfauthor={Kuan-Hsun Tu},
+  pdfsubject={Education, research, publications, honors, work, and teaching experience},
+  pdfcreator={Kuan-Hsun Tu CV}}
+
+% ================================================================
+\begin{document}
+\color{cvtext}
+
+\cvname{Kuan-Hsun Tu}
+\cvcontact{%
+  \cvlink{mailto:khtu@csie.ntu.edu.tw}{khtu@csie.ntu.edu.tw}\cvsepbar
+  \cvlink{https://syun413.github.io/}{syun413.github.io}\cvsepbar
+  \cvlink{https://scholar.google.com/citations?user=sUeQbAkAAAAJ&hl=zh-TW}{Google Scholar}\cvsepbar
+  \cvlink{https://github.com/syun413}{GitHub}}
+
+% ----------------------------------------------------------------
+\cvsection[27.2bp]{Education}
+\cventry{National Taiwan University}{Sep 2021 - Jun 2026}
+\cvline{B.S. in Computer Science and Information Engineering}{}
+\cvline{\itshape Taipei, Taiwan}{}
+
+% ----------------------------------------------------------------
+\cvsection[25.3bp]{Research Experience}
+\cventry{Embodied AI Lab, National Taiwan University{\mdseries\ }%
+  {\mdseries\fs{9.6}(Advisor: \cvlink{https://twke18.github.io/}{Tsung-Wei Ke})}}{}
+\cvline{\itshape Research Assistant}{Aug 2026 - Present}
+\cvline{\itshape Undergraduate Researcher}{Sep 2024 - Jun 2026}
+
+% ----------------------------------------------------------------
+\cvsection{Publications and Preprints}
+\cvnote{\cvsup{*} Equal contribution.~~~\cvsup{\textdagger} Corresponding author.}
+
+\cvpub{\me\eq, Hsuan-Chi Liu\correq, Jia-Wei Liao\eq, Chien-Sheng Chiang, Cheng-Fu Chou, Tsung-Wei Ke}
+  {CNP-Flow: Unified Temporal Flow Matching via Conditional Noise Prediction}
+  {In submission, 2026.}{}
+
+\cvpub{\me\eq, Chien-Sheng Chiang\eq, Hsin-Wei Chen, Ping-Chun Hsieh, Tsung-Wei Ke}
+  {Task Inference Beyond Least Squares in Behavioral Foundation Model}
+  {NeurIPS 2026 PTA Workshop.}{}
+
+\cvpub{Chien-Sheng Chiang\eq, \me\correq, Jia-Wei Liao\eq, Cheng-Fu Chou, Tsung-Wei Ke}
+  {COT-FM: Cluster-wise Optimal Transport Flow Matching}
+  {IEEE/CVF Conference on Computer Vision and Pattern Recognition (\textbf{CVPR}), 2026.}
+  {\publinks{https://arxiv.org/abs/2603.13395}
+            {https://github.com/EmbodiedAI-NTU/COT-FM}
+            {https://embodiedai-ntu.github.io/cotfm/index.html}}
+
+\cvpub{Yash Jangir, Yidi Zhang\eq, Kashu Yamazaki\eq, Chenyu Zhang\eq, \me, Tsung-Wei Ke, Lei Ke, Yonatan Bisk, Katerina Fragkiadaki}
+  {RobotArena $\infty$: Scalable Robot Benchmarking via Real-to-Sim Translation}
+  {International Conference on Learning Representations (\textbf{ICLR}), 2026.}
+  {\publinks{https://arxiv.org/abs/2510.23571}
+            {https://github.com/offjangir/RobotArena}
+            {https://robotarenainf.github.io/}}
+
+\cvpub{Jhen Hsieh, \me, Kuo-Han Hung, Tsung-Wei Ke}
+  {DexMan: Learning Bimanual Dexterous Manipulation from Human and Generated Videos}
+  {arXiv preprint, 2025.}
+  {\publinks{https://arxiv.org/abs/2510.08475}
+            {https://github.com/EmbodiedAI-NTU/DexMan}
+            {https://embodiedai-ntu.github.io/dexman/index.html}}
+
+% ----------------------------------------------------------------
+\cvsection[28bp]{Honors and Awards}
+\cvgroup{Supercomputing Competitions}
+\cvhonor{HiPAC: 5th NCHC Application Performance Optimization Competition}{Aug 2026}
+  {\textbf{1st Place} (served as coach)}
+\cvhonor{SC25 Student Cluster Competition}{Nov 2025}
+  {\textbf{1st Place} \textperiodcentered{} Overall Winner}
+\cvhonor{8th APAC HPC-AI Competition}{Nov 2025}
+  {\textbf{2nd Place} \& Best AI Performance Award}
+
+\cvgroup{Hackathons}
+\cvhonor{Qiskit Hackathon Taiwan}{Aug 2024}
+  {\textbf{1st Place} \textperiodcentered{} Grand Jury Prize}
+
+\cvgroup[20.9bp]{Talks}
+\cvhonor{National Taiwan University Opening Ceremony}{Sep 2026}
+  {Student Representative Speaker}
+
+\clearpage
+% ----------------------------------------------------------------
+\cvsection{Work Experience}
+\cventry{NTU COOL}{Jul - Dec 2026}
+\cvline{Application Developer \textperiodcentered{} Developed
+  \cvlink{https://coolaicompanion.dlc.ntu.edu.tw/}{NTU COOL AI Companion}}{}
+
+\cventry{Department of CSIE, National Taiwan University}{Jul 2025 - Aug 2026}
+\cvline{\itshape Lead System Administrator, System Administration Team}{}
+\cvbullet{Redesigned the departmental network, unified the UI/UX framework, and rebuilt web services.}
+
+\cventry{NTU Student Cluster Competition Team}{Jul - Nov 2025}
+\cvline{\itshape HPC Student Cluster Engineer}{}
+\cvbullet{Contributed to building and optimizing an HPC cluster stack for the SC25 Student Cluster Competition, including HPL benchmarking, the reproducibility challenge, and Mystery Apps.}
+
+% ----------------------------------------------------------------
+\cvsection{Teaching Experience}
+\cvnote{Department of Computer Science and Information Engineering, National Taiwan University}
+
+\cventry[19.4bp]{Advanced Network Administration and System Administration}{Spring 2026}
+\cvline{Teaching Assistant}{}
+
+\cventry[18.6bp]{Network Administration and System Administration}{Spring \& Fall 2025}
+\cvline{Lead Teaching Assistant}{}
+
+\cventry[18.6bp]{Parallel Programming}{Fall 2025}
+\cvline{Teaching Assistant}{}
+
+\end{document}
