@@ -69,11 +69,11 @@ h3 { margin: 0; }
 .publication h3 { font-size: 18px; font-weight: 400; line-height: 1.4; }
 .authors strong { color: var(--ink); }
 .publication .venue { color: var(--ink); font-size: 14px; font-weight: 700; }
-sup { position: relative; top: -0.4em; font-size: 0.7em; line-height: 0; vertical-align: baseline; }
+sup { position: relative; top: -0.4em; font-size: 0.85em; line-height: 0; vertical-align: baseline; color: var(--ink); }
 .resource-links { display: flex; flex-wrap: wrap; list-style: none; margin: 4px 0 0; padding: 0; font-size: 13px; line-height: 1.6; }
 .resource-links li + li::before { content: "·"; color: #9499a5; margin: 0 7px; }
 .resource-links a { white-space: nowrap; }
-.contribution-note { margin-left: 8px; color: var(--muted); font-size: 12px; letter-spacing: 0; }
+.contribution-note { margin-left: 8px; color: var(--secondary); font-size: 13px; letter-spacing: 0; }
 
 footer { margin-top: 60px; text-align: right; color: var(--muted); font-size: 13px; }
 .skip-link { position: absolute; left: 16px; top: -100px; padding: 8px 12px; background: var(--paper); z-index: 1; }
